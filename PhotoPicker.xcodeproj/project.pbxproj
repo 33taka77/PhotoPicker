@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		329D9E1F39B70AA74832848D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6AAA0C7FD335F4CAA6720C /* libPods.a */; };
 		F937B5691AC82BFD0001FB6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B5681AC82BFD0001FB6F /* AppDelegate.swift */; };
 		F937B56C1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F937B56A1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld */; };
 		F937B56E1AC82BFD0001FB6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B56D1AC82BFD0001FB6F /* ViewController.swift */; };
@@ -14,6 +15,9 @@
 		F937B5731AC82BFD0001FB6F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F937B5721AC82BFD0001FB6F /* Images.xcassets */; };
 		F937B5761AC82BFD0001FB6F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F937B5741AC82BFD0001FB6F /* LaunchScreen.xib */; };
 		F937B5821AC82BFE0001FB6F /* PhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B5811AC82BFE0001FB6F /* PhotoPickerTests.swift */; };
+		F937B58C1AC82C2A0001FB6F /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = F937B58B1AC82C2A0001FB6F /* podfile */; };
+		F937B5901AC8304C0001FB6F /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B58F1AC8304C0001FB6F /* ImageManager.swift */; };
+		F937B5921AC8307A0001FB6F /* waterFall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B5911AC8307A0001FB6F /* waterFall.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D3368031B25772DC608BC5F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		6D6AAA0C7FD335F4CAA6720C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5C6A2334A7605C1635E03C8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F937B5631AC82BFD0001FB6F /* PhotoPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F937B5671AC82BFD0001FB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F937B5681AC82BFD0001FB6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +45,10 @@
 		F937B57B1AC82BFE0001FB6F /* PhotoPickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoPickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F937B5801AC82BFE0001FB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F937B5811AC82BFE0001FB6F /* PhotoPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerTests.swift; sourceTree = "<group>"; };
+		F937B58B1AC82C2A0001FB6F /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; };
+		F937B58E1AC82F840001FB6F /* PhotoPicker-BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoPicker-BridgeHeader.h"; sourceTree = "<group>"; };
+		F937B58F1AC8304C0001FB6F /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		F937B5911AC8307A0001FB6F /* waterFall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = waterFall.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329D9E1F39B70AA74832848D /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,12 +70,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		301B6FD576AC5614CC69BAC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B5C6A2334A7605C1635E03C8 /* Pods.debug.xcconfig */,
+				6D3368031B25772DC608BC5F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5B65D9DB0869A873F178985B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D6AAA0C7FD335F4CAA6720C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F937B55A1AC82BFD0001FB6F = {
 			isa = PBXGroup;
 			children = (
+				F937B58B1AC82C2A0001FB6F /* podfile */,
 				F937B5651AC82BFD0001FB6F /* PhotoPicker */,
 				F937B57E1AC82BFE0001FB6F /* PhotoPickerTests */,
 				F937B5641AC82BFD0001FB6F /* Products */,
+				301B6FD576AC5614CC69BAC9 /* Pods */,
+				5B65D9DB0869A873F178985B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +111,8 @@
 		F937B5651AC82BFD0001FB6F /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				F937B5911AC8307A0001FB6F /* waterFall.swift */,
+				F937B58F1AC8304C0001FB6F /* ImageManager.swift */,
 				F937B5681AC82BFD0001FB6F /* AppDelegate.swift */,
 				F937B56D1AC82BFD0001FB6F /* ViewController.swift */,
 				F937B56F1AC82BFD0001FB6F /* Main.storyboard */,
@@ -86,6 +120,7 @@
 				F937B5741AC82BFD0001FB6F /* LaunchScreen.xib */,
 				F937B56A1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld */,
 				F937B5661AC82BFD0001FB6F /* Supporting Files */,
+				F937B58E1AC82F840001FB6F /* PhotoPicker-BridgeHeader.h */,
 			);
 			path = PhotoPicker;
 			sourceTree = "<group>";
@@ -122,9 +157,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F937B5851AC82BFE0001FB6F /* Build configuration list for PBXNativeTarget "PhotoPicker" */;
 			buildPhases = (
+				68AA168798BE6539A222E17A /* Check Pods Manifest.lock */,
 				F937B55F1AC82BFD0001FB6F /* Sources */,
 				F937B5601AC82BFD0001FB6F /* Frameworks */,
 				F937B5611AC82BFD0001FB6F /* Resources */,
+				4749C4FF85C83361F2E6D48B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -160,7 +197,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0620;
-				ORGANIZATIONNAME = "相澤 隆志";
+				ORGANIZATIONNAME = "&#30456;&#28580; &#38534;&#24535;";
 				TargetAttributes = {
 					F937B5621AC82BFD0001FB6F = {
 						CreatedOnToolsVersion = 6.2;
@@ -197,6 +234,7 @@
 			files = (
 				F937B5711AC82BFD0001FB6F /* Main.storyboard in Resources */,
 				F937B5761AC82BFD0001FB6F /* LaunchScreen.xib in Resources */,
+				F937B58C1AC82C2A0001FB6F /* podfile in Resources */,
 				F937B5731AC82BFD0001FB6F /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +248,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4749C4FF85C83361F2E6D48B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68AA168798BE6539A222E17A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F937B55F1AC82BFD0001FB6F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -218,6 +289,8 @@
 				F937B56E1AC82BFD0001FB6F /* ViewController.swift in Sources */,
 				F937B56C1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld in Sources */,
 				F937B5691AC82BFD0001FB6F /* AppDelegate.swift in Sources */,
+				F937B5901AC8304C0001FB6F /* ImageManager.swift in Sources */,
+				F937B5921AC8307A0001FB6F /* waterFall.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,21 +413,27 @@
 		};
 		F937B5861AC82BFE0001FB6F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5C6A2334A7605C1635E03C8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PhotoPicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoPicker/PhotoPicker-BridgeHeader.h";
 			};
 			name = Debug;
 		};
 		F937B5871AC82BFE0001FB6F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6D3368031B25772DC608BC5F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PhotoPicker/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoPicker/PhotoPicker-BridgeHeader.h";
 			};
 			name = Release;
 		};
@@ -411,6 +490,7 @@
 				F937B5871AC82BFE0001FB6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F937B5881AC82BFE0001FB6F /* Build configuration list for PBXNativeTarget "PhotoPickerTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +499,7 @@
 				F937B58A1AC82BFE0001FB6F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
