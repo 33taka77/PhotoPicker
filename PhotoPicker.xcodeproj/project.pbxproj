@@ -22,6 +22,20 @@
 		F937B5821AC82BFE0001FB6F /* PhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B5811AC82BFE0001FB6F /* PhotoPickerTests.swift */; };
 		F937B58C1AC82C2A0001FB6F /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = F937B58B1AC82C2A0001FB6F /* podfile */; };
 		F937B5921AC8307A0001FB6F /* waterFall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B5911AC8307A0001FB6F /* waterFall.swift */; };
+		F952B5F71AC9728B00DE515F /* photo32.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B5EC1AC9728B00DE515F /* photo32.png */; };
+		F952B5F81AC9728B00DE515F /* arrow426.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B5ED1AC9728B00DE515F /* arrow426.png */; };
+		F952B5F91AC9728B00DE515F /* check25.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B5EE1AC9728B00DE515F /* check25.png */; };
+		F952B5FA1AC9728B00DE515F /* pictures1.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B5EF1AC9728B00DE515F /* pictures1.png */; };
+		F952B5FB1AC9728B00DE515F /* move13.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B5F01AC9728B00DE515F /* move13.png */; };
+		F952B5FC1AC9728B00DE515F /* services-128.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B5F11AC9728B00DE515F /* services-128.png */; };
+		F952B5FD1AC9728B00DE515F /* Search Property-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B5F21AC9728B00DE515F /* Search Property-50.png */; };
+		F952B5FE1AC9728B00DE515F /* Activity Grid 2-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B5F31AC9728B00DE515F /* Activity Grid 2-50.png */; };
+		F952B5FF1AC9728B00DE515F /* Activity Feed 2-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B5F41AC9728B00DE515F /* Activity Feed 2-50.png */; };
+		F952B6001AC9728B00DE515F /* Settings3-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B5F51AC9728B00DE515F /* Settings3-50.png */; };
+		F952B6011AC9728B00DE515F /* Home-50.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B5F61AC9728B00DE515F /* Home-50.png */; };
+		F952B6041AC9753300DE515F /* information32.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B6031AC9753300DE515F /* information32.png */; };
+		F952B6071AC980DC00DE515F /* Activity Feed 2-51ー.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B6051AC980DC00DE515F /* Activity Feed 2-51ー.png */; };
+		F952B6081AC980DC00DE515F /* Home-51.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B6061AC980DC00DE515F /* Home-51.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +71,20 @@
 		F937B58B1AC82C2A0001FB6F /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; };
 		F937B58E1AC82F840001FB6F /* PhotoPicker-BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoPicker-BridgeHeader.h"; sourceTree = "<group>"; };
 		F937B5911AC8307A0001FB6F /* waterFall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = waterFall.swift; sourceTree = "<group>"; };
+		F952B5EC1AC9728B00DE515F /* photo32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photo32.png; sourceTree = "<group>"; };
+		F952B5ED1AC9728B00DE515F /* arrow426.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow426.png; sourceTree = "<group>"; };
+		F952B5EE1AC9728B00DE515F /* check25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check25.png; sourceTree = "<group>"; };
+		F952B5EF1AC9728B00DE515F /* pictures1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pictures1.png; sourceTree = "<group>"; };
+		F952B5F01AC9728B00DE515F /* move13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = move13.png; sourceTree = "<group>"; };
+		F952B5F11AC9728B00DE515F /* services-128.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "services-128.png"; sourceTree = "<group>"; };
+		F952B5F21AC9728B00DE515F /* Search Property-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Search Property-50.png"; sourceTree = "<group>"; };
+		F952B5F31AC9728B00DE515F /* Activity Grid 2-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Activity Grid 2-50.png"; sourceTree = "<group>"; };
+		F952B5F41AC9728B00DE515F /* Activity Feed 2-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Activity Feed 2-50.png"; sourceTree = "<group>"; };
+		F952B5F51AC9728B00DE515F /* Settings3-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Settings3-50.png"; sourceTree = "<group>"; };
+		F952B5F61AC9728B00DE515F /* Home-50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home-50.png"; sourceTree = "<group>"; };
+		F952B6031AC9753300DE515F /* information32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = information32.png; sourceTree = "<group>"; };
+		F952B6051AC980DC00DE515F /* Activity Feed 2-51ー.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Activity Feed 2-51ー.png"; sourceTree = "<group>"; };
+		F952B6061AC980DC00DE515F /* Home-51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home-51.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +147,7 @@
 		F937B5651AC82BFD0001FB6F /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				F952B6021AC972AA00DE515F /* icon */,
 				8194A30C1AC92437007B2499 /* ImageManager.swift */,
 				F937B5911AC8307A0001FB6F /* waterFall.swift */,
 				F937B5681AC82BFD0001FB6F /* AppDelegate.swift */,
@@ -160,6 +189,27 @@
 				F937B5801AC82BFE0001FB6F /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F952B6021AC972AA00DE515F /* icon */ = {
+			isa = PBXGroup;
+			children = (
+				F952B6051AC980DC00DE515F /* Activity Feed 2-51ー.png */,
+				F952B6061AC980DC00DE515F /* Home-51.png */,
+				F952B6031AC9753300DE515F /* information32.png */,
+				F952B5EC1AC9728B00DE515F /* photo32.png */,
+				F952B5ED1AC9728B00DE515F /* arrow426.png */,
+				F952B5EE1AC9728B00DE515F /* check25.png */,
+				F952B5EF1AC9728B00DE515F /* pictures1.png */,
+				F952B5F01AC9728B00DE515F /* move13.png */,
+				F952B5F11AC9728B00DE515F /* services-128.png */,
+				F952B5F21AC9728B00DE515F /* Search Property-50.png */,
+				F952B5F31AC9728B00DE515F /* Activity Grid 2-50.png */,
+				F952B5F41AC9728B00DE515F /* Activity Feed 2-50.png */,
+				F952B5F51AC9728B00DE515F /* Settings3-50.png */,
+				F952B5F61AC9728B00DE515F /* Home-50.png */,
+			);
+			name = icon;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,10 +294,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F952B5FD1AC9728B00DE515F /* Search Property-50.png in Resources */,
+				F952B5FA1AC9728B00DE515F /* pictures1.png in Resources */,
 				F937B5711AC82BFD0001FB6F /* Main.storyboard in Resources */,
+				F952B6001AC9728B00DE515F /* Settings3-50.png in Resources */,
+				F952B5F91AC9728B00DE515F /* check25.png in Resources */,
+				F952B5FE1AC9728B00DE515F /* Activity Grid 2-50.png in Resources */,
+				F952B6081AC980DC00DE515F /* Home-51.png in Resources */,
+				F952B6071AC980DC00DE515F /* Activity Feed 2-51ー.png in Resources */,
+				F952B5FC1AC9728B00DE515F /* services-128.png in Resources */,
+				F952B5F71AC9728B00DE515F /* photo32.png in Resources */,
+				F952B5F81AC9728B00DE515F /* arrow426.png in Resources */,
+				F952B6011AC9728B00DE515F /* Home-50.png in Resources */,
+				F952B5FB1AC9728B00DE515F /* move13.png in Resources */,
 				F937B5761AC82BFD0001FB6F /* LaunchScreen.xib in Resources */,
 				F937B58C1AC82C2A0001FB6F /* podfile in Resources */,
+				F952B5FF1AC9728B00DE515F /* Activity Feed 2-50.png in Resources */,
 				F937B5731AC82BFD0001FB6F /* Images.xcassets in Resources */,
+				F952B6041AC9753300DE515F /* information32.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

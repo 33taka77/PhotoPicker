@@ -14,7 +14,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
 
     var window: UIWindow?
     var dynamicsDrawerViewController:MSDynamicsDrawerViewController!
-
+    var centerViewControllerBk:CenterThumbnailViewController!
+    
     func setupDrawer(viewController:UIViewController) {
         self.dynamicsDrawerViewController = viewController as MSDynamicsDrawerViewController
         self.dynamicsDrawerViewController.delegate = self
@@ -25,8 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
         self.dynamicsDrawerViewController.setDrawerViewController(rightViewController, forDirection: MSDynamicsDrawerDirection.Right)
         let paneNavigationContorller:UINavigationController = UINavigationController(rootViewController: centerViewController)
         self.dynamicsDrawerViewController.setPaneViewController(paneNavigationContorller, animated: false, completion: nil)
-        
+        centerViewControllerBk = centerViewController
     }
+    
+    func openCloseDrawer() {
+        self.dynamicsDrawerViewController.setPaneState(MSDynamicsDrawerPaneState.Open, inDirection:MSDynamicsDrawerDirection.Right, animated:true, allowUserInterruption:true, completion:nil);
+    }
+    
+    func changeWaterFallColumnCount( count:Int ) {
+        centerViewControllerBk.columnCount = count
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true

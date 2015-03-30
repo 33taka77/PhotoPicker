@@ -10,10 +10,32 @@ import UIKit
 
 class RightOptionSettingViewController: UIViewController {
 
+    @IBOutlet weak var columnCont: UILabel!
+    @IBOutlet weak var steper: UIStepper!
+    
+    @IBAction func changeStep(sender: AnyObject) {
+        let c:Double = self.steper.value
+        columnCont.text = convertDoubleToString(c)
+        let application:UIApplication = UIApplication.sharedApplication()
+        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        appdelegate.changeWaterFallColumnCount(Int(c))
+    }
+    
+    func convertDoubleToString( d:Double )->String {
+        let intNum:Int = Int(d)
+        let countString:String = String(intNum)
+        return countString
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.steper.value = 3
+        self.steper.minimumValue = 2
+        self.steper.maximumValue = 5
+        self.steper.stepValue = 1
+        self.columnCont.text = convertDoubleToString(self.steper.value)
     }
 
     override func didReceiveMemoryWarning() {
