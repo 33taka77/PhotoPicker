@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		329D9E1F39B70AA74832848D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6AAA0C7FD335F4CAA6720C /* libPods.a */; };
+		8194A3051AC8DF9A007B2499 /* CenterThumbnailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A3041AC8DF9A007B2499 /* CenterThumbnailViewController.swift */; };
+		8194A3071AC8E129007B2499 /* RightOptionSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A3061AC8E129007B2499 /* RightOptionSettingViewController.swift */; };
+		8194A3091AC90D95007B2499 /* DynamicDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A3081AC90D95007B2499 /* DynamicDrawerViewController.swift */; };
+		8194A30B1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A30A1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift */; };
+		8194A30D1AC92437007B2499 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A30C1AC92437007B2499 /* ImageManager.swift */; };
 		F937B5691AC82BFD0001FB6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B5681AC82BFD0001FB6F /* AppDelegate.swift */; };
 		F937B56C1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F937B56A1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld */; };
 		F937B56E1AC82BFD0001FB6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B56D1AC82BFD0001FB6F /* ViewController.swift */; };
@@ -16,7 +21,6 @@
 		F937B5761AC82BFD0001FB6F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F937B5741AC82BFD0001FB6F /* LaunchScreen.xib */; };
 		F937B5821AC82BFE0001FB6F /* PhotoPickerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B5811AC82BFE0001FB6F /* PhotoPickerTests.swift */; };
 		F937B58C1AC82C2A0001FB6F /* podfile in Resources */ = {isa = PBXBuildFile; fileRef = F937B58B1AC82C2A0001FB6F /* podfile */; };
-		F937B5901AC8304C0001FB6F /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B58F1AC8304C0001FB6F /* ImageManager.swift */; };
 		F937B5921AC8307A0001FB6F /* waterFall.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B5911AC8307A0001FB6F /* waterFall.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +37,11 @@
 /* Begin PBXFileReference section */
 		6D3368031B25772DC608BC5F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		6D6AAA0C7FD335F4CAA6720C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8194A3041AC8DF9A007B2499 /* CenterThumbnailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterThumbnailViewController.swift; sourceTree = "<group>"; };
+		8194A3061AC8E129007B2499 /* RightOptionSettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightOptionSettingViewController.swift; sourceTree = "<group>"; };
+		8194A3081AC90D95007B2499 /* DynamicDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicDrawerViewController.swift; sourceTree = "<group>"; };
+		8194A30A1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailWaterFallCollectionViewCell.swift; sourceTree = "<group>"; };
+		8194A30C1AC92437007B2499 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		B5C6A2334A7605C1635E03C8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F937B5631AC82BFD0001FB6F /* PhotoPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F937B5671AC82BFD0001FB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,7 +56,6 @@
 		F937B5811AC82BFE0001FB6F /* PhotoPickerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerTests.swift; sourceTree = "<group>"; };
 		F937B58B1AC82C2A0001FB6F /* podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; };
 		F937B58E1AC82F840001FB6F /* PhotoPicker-BridgeHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoPicker-BridgeHeader.h"; sourceTree = "<group>"; };
-		F937B58F1AC8304C0001FB6F /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		F937B5911AC8307A0001FB6F /* waterFall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = waterFall.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,11 +119,15 @@
 		F937B5651AC82BFD0001FB6F /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				8194A30C1AC92437007B2499 /* ImageManager.swift */,
 				F937B5911AC8307A0001FB6F /* waterFall.swift */,
-				F937B58F1AC8304C0001FB6F /* ImageManager.swift */,
 				F937B5681AC82BFD0001FB6F /* AppDelegate.swift */,
 				F937B56D1AC82BFD0001FB6F /* ViewController.swift */,
 				F937B56F1AC82BFD0001FB6F /* Main.storyboard */,
+				8194A30A1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift */,
+				8194A3081AC90D95007B2499 /* DynamicDrawerViewController.swift */,
+				8194A3061AC8E129007B2499 /* RightOptionSettingViewController.swift */,
+				8194A3041AC8DF9A007B2499 /* CenterThumbnailViewController.swift */,
 				F937B5721AC82BFD0001FB6F /* Images.xcassets */,
 				F937B5741AC82BFD0001FB6F /* LaunchScreen.xib */,
 				F937B56A1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld */,
@@ -288,9 +300,13 @@
 			files = (
 				F937B56E1AC82BFD0001FB6F /* ViewController.swift in Sources */,
 				F937B56C1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld in Sources */,
+				8194A3071AC8E129007B2499 /* RightOptionSettingViewController.swift in Sources */,
+				8194A30D1AC92437007B2499 /* ImageManager.swift in Sources */,
 				F937B5691AC82BFD0001FB6F /* AppDelegate.swift in Sources */,
-				F937B5901AC8304C0001FB6F /* ImageManager.swift in Sources */,
+				8194A3051AC8DF9A007B2499 /* CenterThumbnailViewController.swift in Sources */,
 				F937B5921AC8307A0001FB6F /* waterFall.swift in Sources */,
+				8194A3091AC90D95007B2499 /* DynamicDrawerViewController.swift in Sources */,
+				8194A30B1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +466,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = PhotoPickerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoPicker.app/PhotoPicker";
@@ -465,6 +482,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = PhotoPickerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoPicker.app/PhotoPicker";

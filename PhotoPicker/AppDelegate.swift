@@ -10,11 +10,23 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewControllerDelegate {
 
     var window: UIWindow?
+    var dynamicsDrawerViewController:MSDynamicsDrawerViewController!
 
-
+    func setupDrawer(viewController:UIViewController) {
+        self.dynamicsDrawerViewController = viewController as MSDynamicsDrawerViewController
+        self.dynamicsDrawerViewController.delegate = self
+        let styleArray:[AnyObject] = [MSDynamicsDrawerScaleStyler.styler(),MSDynamicsDrawerFadeStyler.styler(),MSDynamicsDrawerShadowStyler.styler()]
+        self.dynamicsDrawerViewController.addStylersFromArray(styleArray, forDirection: MSDynamicsDrawerDirection.Right)
+        let centerViewController:CenterThumbnailViewController = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("CenterThumbnailViewController") as CenterThumbnailViewController
+        let rightViewController:RightOptionSettingViewController = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("RightOptionSettingViewController") as RightOptionSettingViewController
+        self.dynamicsDrawerViewController.setDrawerViewController(rightViewController, forDirection: MSDynamicsDrawerDirection.Right)
+        let paneNavigationContorller:UINavigationController = UINavigationController(rootViewController: centerViewController)
+        self.dynamicsDrawerViewController.setPaneViewController(paneNavigationContorller, animated: false, completion: nil)
+        
+    }
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true

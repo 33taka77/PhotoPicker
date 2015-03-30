@@ -32,6 +32,11 @@ class ImageManager {
             return sectionNames.count
         }
     }
+    var allImageCount:Int {
+        get{
+            return assetsArray.count
+        }
+    }
     func getSectionName(index:Int)->String {
         return sectionNames[index]
     }
