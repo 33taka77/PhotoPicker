@@ -11,15 +11,27 @@ import Photos
 
 class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateWaterfallLayout,UICollectionViewDataSource {
     
-    var imageManager:ImageManager!
-    var cellSizes:[CGSize] = []
+    private var imageManager:ImageManager!
+    private var collectionLayout:CHTCollectionViewWaterfallLayout!
+    private var cellSizes:[CGSize] = []
 
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    internal var columnCount:Int {
+        get{
+            return collectionLayout.columnCount
+        }
+        set(value){
+            collectionLayout.columnCount = value
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         imageManager = ImageManager.sharedInstance
+        
         imageManager.collectAssets { () -> Void in
             self.collectionView.reloadData()
         }
@@ -53,8 +65,8 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         let asset:PHAsset = imageManager.getAsset(indexPath.row) as PHAsset
         let imgWidth:CGFloat = CGFloat(asset.pixelWidth)
         let imgHeight = CGFloat(asset.pixelHeight)
-        let sizeX:CGFloat =  CGFloat(asset.pixelWidth/2)
-        let sizeY:CGFloat = CGFloat(asset.pixelHeight/2)
+        let sizeX:CGFloat =  CGFloat(asset.pixelWidth/4)
+        let sizeY:CGFloat = CGFloat(asset.pixelHeight/4)
         
         PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(sizeX, sizeY), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
             cell.thumbnailImageView.image = image
@@ -63,6 +75,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        collectionLayout = collectionViewLayout as CHTCollectionViewWaterfallLayout
         let size:CGSize = cellSizes[indexPath.item]
         return size
     }
