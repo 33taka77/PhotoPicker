@@ -199,7 +199,7 @@
                                 </items>
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DHK-JA-xgY">
-                                <rect key="frame" x="0.0" y="-44" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="55" width="600" height="501"/>
                                 <color key="backgroundColor" red="0.29519807450000002" green="0.25115269959999997" blue="0.073489997700000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="acb-Os-T4I">
                                     <size key="itemSize" width="625" height="197"/>
@@ -216,7 +216,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ieh-PR-011">
-                                                    <rect key="frame" x="-8" y="0.0" width="625" height="197"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="625" height="197"/>
                                                     <color key="backgroundColor" red="0.29519807450000002" green="0.25115269959999997" blue="0.073489997700000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lqo-3T-ng1">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -297,7 +297,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="mzg-Hp-bvn" secondAttribute="trailing" constant="-16" id="hDP-kQ-Czz"/>
                             <constraint firstItem="DHK-JA-xgY" firstAttribute="leading" secondItem="6k0-2a-leU" secondAttribute="leadingMargin" constant="-16" id="mJr-lS-hX8"/>
                             <constraint firstItem="mzg-Hp-bvn" firstAttribute="leading" secondItem="6k0-2a-leU" secondAttribute="leadingMargin" constant="-16" id="qGZ-kW-Zwi"/>
-                            <constraint firstItem="DHK-JA-xgY" firstAttribute="top" secondItem="6k0-2a-leU" secondAttribute="topMargin" constant="-44" id="vA5-26-to2"/>
+                            <constraint firstItem="DHK-JA-xgY" firstAttribute="top" secondItem="6k0-2a-leU" secondAttribute="topMargin" constant="55" id="vA5-26-to2"/>
                         </constraints>
                     </view>
                     <connections>

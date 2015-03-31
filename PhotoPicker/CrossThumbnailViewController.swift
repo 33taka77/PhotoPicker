@@ -22,8 +22,25 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        let iconHome:UIImage = UIImage(named: "Home-51.png")!
+        let leftButton:UIBarButtonItem = UIBarButtonItem(image: iconHome, style: UIBarButtonItemStyle.Plain, target: self, action: "backButtonPushed")
+        self.navigationItem.leftBarButtonItem = leftButton
+        
+        let iconDraw:UIImage = UIImage(named: "Activity Feed 2-51ー.png")!
+        let rightButton:UIBarButtonItem = UIBarButtonItem(image: iconDraw, style: UIBarButtonItemStyle.Plain, target: self, action: "drawerButtonPushed")
+        self.navigationItem.rightBarButtonItem = rightButton
+
         imageManager = ImageManager.sharedInstance
         imageManager.sortByKeyOfAssetDate()
+    }
+
+    func backButtonPushed() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    func drawerButtonPushed() {
+        let application:UIApplication = UIApplication.sharedApplication()
+        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        appdelegate.openCloseDrawer()
     }
 
     override func didReceiveMemoryWarning() {
