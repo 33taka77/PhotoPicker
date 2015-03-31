@@ -180,7 +180,7 @@
         <!--Cross Thumbnail View Controller-->
         <scene sceneID="vdc-B7-8Fm">
             <objects>
-                <viewController storyboardIdentifier="CrossThumbnailViewController" id="Hx3-BJ-toK" customClass="CrossThumbnailViewController" customModule="PhotoPicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CrossThumbnailView" id="Hx3-BJ-toK" customClass="CrossThumbnailViewController" customModule="PhotoPicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="atQ-rI-pks"/>
                         <viewControllerLayoutGuide type="bottom" id="CkL-1x-CVk"/>
@@ -200,6 +200,7 @@
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DHK-JA-xgY">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" red="0.29519807450000002" green="0.25115269959999997" blue="0.073489997700000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="acb-Os-T4I">
                                     <size key="itemSize" width="625" height="197"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
@@ -216,7 +217,7 @@
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ieh-PR-011">
                                                     <rect key="frame" x="-8" y="0.0" width="625" height="197"/>
-                                                    <color key="backgroundColor" red="0.72549019609999998" green="0.35686274509999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" red="0.29519807450000002" green="0.25115269959999997" blue="0.073489997700000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lqo-3T-ng1">
                                                         <size key="itemSize" width="50" height="50"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -231,7 +232,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Vn-ou-Y47">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4Vn-ou-Y47">
                                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -252,34 +253,34 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <color key="backgroundColor" red="1" green="0.85221443689999998" blue="0.21726134520000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.29519807450000002" green="0.25115269959999997" blue="0.073489997700000004" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="collectionView" destination="Ieh-PR-011" id="dtp-2J-Ixk"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CrossBaseHeader" id="JUT-PD-8UE" customClass="CrossBaesHeaderCollectionReusableView" customModule="PhotoPicker" customModuleProvider="target">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CrossBaseHeaderIdentify" id="1gk-aS-bgO" customClass="CrossBaesHeaderCollectionReusableView" customModule="PhotoPicker" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhH-Go-my8">
-                                            <rect key="frame" x="181" y="14" width="238" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTX-2R-8VM">
+                                            <rect key="frame" x="202.5" y="11" width="195" height="28"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="238" id="SNK-1x-dsG"/>
-                                                <constraint firstAttribute="height" constant="21" id="asf-7m-mpo"/>
+                                                <constraint firstAttribute="height" constant="28" id="ZGc-r4-q3k"/>
+                                                <constraint firstAttribute="width" constant="195" id="nUf-ju-bfx"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <color key="backgroundColor" red="0.894235322" green="0.54474007710000005" blue="0.19196648760000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="KhH-Go-my8" secondAttribute="centerY" id="8mt-JB-MmH"/>
-                                        <constraint firstAttribute="centerX" secondItem="KhH-Go-my8" secondAttribute="centerX" id="fQc-sq-z9y"/>
+                                        <constraint firstAttribute="centerY" secondItem="rTX-2R-8VM" secondAttribute="centerY" id="7xK-Oh-9By"/>
+                                        <constraint firstAttribute="centerX" secondItem="rTX-2R-8VM" secondAttribute="centerX" id="GcT-Vt-bV1"/>
                                     </constraints>
                                     <connections>
-                                        <outlet property="label" destination="8mt-JB-MmH" id="HQW-T5-7LI"/>
-                                        <outlet property="sectionTitle" destination="KhH-Go-my8" id="EcU-IU-EZm"/>
+                                        <outlet property="sectionTitle" destination="rTX-2R-8VM" id="D3I-cb-cm6"/>
                                     </connections>
                                 </collectionReusableView>
                                 <connections>
@@ -370,6 +371,7 @@
                                     <segment title="Cross Thumbnail"/>
                                 </segments>
                                 <connections>
+                                    <action selector="changeDispMode:" destination="peY-n1-Eyp" eventType="valueChanged" id="2fj-T4-Eek"/>
                                     <action selector="changeStep:" destination="peY-n1-Eyp" eventType="valueChanged" id="EHd-8c-1TF"/>
                                 </connections>
                             </segmentedControl>
@@ -390,6 +392,7 @@
                     </view>
                     <connections>
                         <outlet property="columnCont" destination="trF-wK-WRc" id="tPQ-Ny-Xmn"/>
+                        <outlet property="dispModeSegment" destination="ze8-Li-lEF" id="gVk-mF-uhj"/>
                         <outlet property="steper" destination="QUK-8h-wc3" id="QhS-Vp-IKj"/>
                     </connections>
                 </viewController>

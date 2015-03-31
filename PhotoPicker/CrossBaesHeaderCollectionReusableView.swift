@@ -9,7 +9,6 @@
 import UIKit
 
 class CrossBaesHeaderCollectionReusableView: UICollectionReusableView {
-        
-    @IBOutlet weak var sectionTitle: UILabel!
 
+    @IBOutlet weak var sectionTitle: UILabel!
 }

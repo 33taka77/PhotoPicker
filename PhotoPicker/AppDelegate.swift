@@ -29,13 +29,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
         self.dynamicsDrawerViewController.delegate = self
         let styleArray:[AnyObject] = [MSDynamicsDrawerScaleStyler.styler(),MSDynamicsDrawerFadeStyler.styler(),MSDynamicsDrawerShadowStyler.styler()]
         self.dynamicsDrawerViewController.addStylersFromArray(styleArray, forDirection: MSDynamicsDrawerDirection.Right)
-        let centerViewController:CenterThumbnailViewController = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("CenterThumbnailViewController") as CenterThumbnailViewController
+        //let centerViewController:CenterThumbnailViewController = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("CenterThumbnailViewController") as CenterThumbnailViewController
         let rightViewController:RightOptionSettingViewController = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("RightOptionSettingViewController") as RightOptionSettingViewController
         self.dynamicsDrawerViewController.setDrawerViewController(rightViewController, forDirection: MSDynamicsDrawerDirection.Right)
+        setCenterViewController(CenterViewControllerType.waterFallThumbnail)
+        /*
         let paneNavigationContorller:UINavigationController = UINavigationController(rootViewController: centerViewController)
         self.dynamicsDrawerViewController.setPaneViewController(paneNavigationContorller, animated: false, completion: nil)
         centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] = centerViewController
         centerViewControllerBk = centerViewController
+        */
     }
     
     func openCloseDrawer() {
@@ -43,7 +46,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
     }
     
     func changeWaterFallColumnCount( count:Int ) {
-        centerViewControllerBk.columnCount = count
+        let centerViewController:CenterThumbnailViewController = centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] as CenterThumbnailViewController
+        centerViewController.columnCount = count
+    }
+    
+    func setCenterViewController(type:CenterViewControllerType) {
+        var centerViewController: UIViewController!
+        
+        switch type {
+        case CenterViewControllerType.waterFallThumbnail:
+            if centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] == nil {
+                centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("CenterThumbnailViewController") as CenterThumbnailViewController
+            }
+            centerViewController = centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] as UIViewController
+        case CenterViewControllerType.clossCollectionThumbnai:
+            if centerControllerDictionary[CenterViewControllerType.clossCollectionThumbnai] == nil {
+                centerControllerDictionary[CenterViewControllerType.clossCollectionThumbnai] = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("CrossThumbnailView") as CrossThumbnailViewController
+            }
+            centerViewController = centerControllerDictionary[CenterViewControllerType.clossCollectionThumbnai] as UIViewController
+        default:
+            println("Unknown Type")
+        }
+        let paneNavigationContorller:UINavigationController = UINavigationController(rootViewController: centerViewController)
+        self.dynamicsDrawerViewController.setPaneViewController(paneNavigationContorller, animated: false, completion: nil)
+        
     }
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

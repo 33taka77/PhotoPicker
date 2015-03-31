@@ -40,7 +40,7 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
         return 1
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell:CrossBaweCollectionViewCell = self.baseCollectionView.dequeueReusableCellWithReuseIdentifier("SideSlideCell", forIndexPath: indexPath) as CrossBaweCollectionViewCell
+        let cell:CrossBaweCollectionViewCell = self.baseCollectionView.dequeueReusableCellWithReuseIdentifier("BaseCollectionViewCell", forIndexPath: indexPath) as CrossBaweCollectionViewCell
         cell.imageArray = imageManager.getImageArray(imageManager.getSectionName(indexPath.section))
         cell.setup()
         return cell
@@ -53,7 +53,7 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
         var header : CrossBaesHeaderCollectionReusableView? = nil
         if (kind == UICollectionElementKindSectionHeader) {
-            header = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CrossBaseHeader", forIndexPath: indexPath)
+            header = baseCollectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CrossBaseHeaderIdentify", forIndexPath: indexPath)
                 as? CrossBaesHeaderCollectionReusableView
             header?.sectionTitle.text = imageManager.getSectionName(indexPath.section)
         }
