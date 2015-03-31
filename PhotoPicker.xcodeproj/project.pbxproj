@@ -13,6 +13,10 @@
 		8194A3091AC90D95007B2499 /* DynamicDrawerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A3081AC90D95007B2499 /* DynamicDrawerViewController.swift */; };
 		8194A30B1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A30A1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift */; };
 		8194A30D1AC92437007B2499 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A30C1AC92437007B2499 /* ImageManager.swift */; };
+		8194A3131ACA22D4007B2499 /* CrossThumbnailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A3121ACA22D4007B2499 /* CrossThumbnailViewController.swift */; };
+		8194A3151ACA23EB007B2499 /* CrossBaweCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A3141ACA23EB007B2499 /* CrossBaweCollectionViewCell.swift */; };
+		8194A3171ACA24CB007B2499 /* CrossBaesHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A3161ACA24CB007B2499 /* CrossBaesHeaderCollectionReusableView.swift */; };
+		8194A3191ACA2885007B2499 /* CrossThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A3181ACA2885007B2499 /* CrossThumbnailCollectionViewCell.swift */; };
 		F937B5691AC82BFD0001FB6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B5681AC82BFD0001FB6F /* AppDelegate.swift */; };
 		F937B56C1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F937B56A1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld */; };
 		F937B56E1AC82BFD0001FB6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B56D1AC82BFD0001FB6F /* ViewController.swift */; };
@@ -56,6 +60,10 @@
 		8194A3081AC90D95007B2499 /* DynamicDrawerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DynamicDrawerViewController.swift; sourceTree = "<group>"; };
 		8194A30A1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThumbnailWaterFallCollectionViewCell.swift; sourceTree = "<group>"; };
 		8194A30C1AC92437007B2499 /* ImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
+		8194A3121ACA22D4007B2499 /* CrossThumbnailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossThumbnailViewController.swift; sourceTree = "<group>"; };
+		8194A3141ACA23EB007B2499 /* CrossBaweCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossBaweCollectionViewCell.swift; sourceTree = "<group>"; };
+		8194A3161ACA24CB007B2499 /* CrossBaesHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossBaesHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		8194A3181ACA2885007B2499 /* CrossThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
 		B5C6A2334A7605C1635E03C8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F937B5631AC82BFD0001FB6F /* PhotoPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F937B5671AC82BFD0001FB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -123,6 +131,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8194A31A1ACA2DB0007B2499 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				8194A3061AC8E129007B2499 /* RightOptionSettingViewController.swift */,
+				8194A3081AC90D95007B2499 /* DynamicDrawerViewController.swift */,
+				8194A3121ACA22D4007B2499 /* CrossThumbnailViewController.swift */,
+				8194A3041AC8DF9A007B2499 /* CenterThumbnailViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		8194A31B1ACA2DBB007B2499 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				8194A30A1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift */,
+				8194A3181ACA2885007B2499 /* CrossThumbnailCollectionViewCell.swift */,
+				8194A3141ACA23EB007B2499 /* CrossBaweCollectionViewCell.swift */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		F937B55A1AC82BFD0001FB6F = {
 			isa = PBXGroup;
 			children = (
@@ -147,16 +176,15 @@
 		F937B5651AC82BFD0001FB6F /* PhotoPicker */ = {
 			isa = PBXGroup;
 			children = (
+				8194A31B1ACA2DBB007B2499 /* Cell */,
+				8194A31A1ACA2DB0007B2499 /* ViewController */,
 				F952B6021AC972AA00DE515F /* icon */,
 				8194A30C1AC92437007B2499 /* ImageManager.swift */,
 				F937B5911AC8307A0001FB6F /* waterFall.swift */,
 				F937B5681AC82BFD0001FB6F /* AppDelegate.swift */,
 				F937B56D1AC82BFD0001FB6F /* ViewController.swift */,
 				F937B56F1AC82BFD0001FB6F /* Main.storyboard */,
-				8194A30A1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift */,
-				8194A3081AC90D95007B2499 /* DynamicDrawerViewController.swift */,
-				8194A3061AC8E129007B2499 /* RightOptionSettingViewController.swift */,
-				8194A3041AC8DF9A007B2499 /* CenterThumbnailViewController.swift */,
+				8194A3161ACA24CB007B2499 /* CrossBaesHeaderCollectionReusableView.swift */,
 				F937B5721AC82BFD0001FB6F /* Images.xcassets */,
 				F937B5741AC82BFD0001FB6F /* LaunchScreen.xib */,
 				F937B56A1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld */,
@@ -364,13 +392,17 @@
 			files = (
 				F937B56E1AC82BFD0001FB6F /* ViewController.swift in Sources */,
 				F937B56C1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld in Sources */,
+				8194A3171ACA24CB007B2499 /* CrossBaesHeaderCollectionReusableView.swift in Sources */,
 				8194A3071AC8E129007B2499 /* RightOptionSettingViewController.swift in Sources */,
 				8194A30D1AC92437007B2499 /* ImageManager.swift in Sources */,
 				F937B5691AC82BFD0001FB6F /* AppDelegate.swift in Sources */,
 				8194A3051AC8DF9A007B2499 /* CenterThumbnailViewController.swift in Sources */,
 				F937B5921AC8307A0001FB6F /* waterFall.swift in Sources */,
 				8194A3091AC90D95007B2499 /* DynamicDrawerViewController.swift in Sources */,
+				8194A3131ACA22D4007B2499 /* CrossThumbnailViewController.swift in Sources */,
 				8194A30B1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift in Sources */,
+				8194A3151ACA23EB007B2499 /* CrossBaweCollectionViewCell.swift in Sources */,
+				8194A3191ACA2885007B2499 /* CrossThumbnailCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

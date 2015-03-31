@@ -9,12 +9,20 @@
 import UIKit
 import CoreData
 
+enum CenterViewControllerType{
+    case waterFallThumbnail
+    case clossCollectionThumbnai
+    case listThumbnail
+}
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewControllerDelegate {
 
     var window: UIWindow?
     var dynamicsDrawerViewController:MSDynamicsDrawerViewController!
     var centerViewControllerBk:CenterThumbnailViewController!
+    var centerControllerDictionary:[CenterViewControllerType:AnyObject] = [:]
     
     func setupDrawer(viewController:UIViewController) {
         self.dynamicsDrawerViewController = viewController as MSDynamicsDrawerViewController
@@ -26,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
         self.dynamicsDrawerViewController.setDrawerViewController(rightViewController, forDirection: MSDynamicsDrawerDirection.Right)
         let paneNavigationContorller:UINavigationController = UINavigationController(rootViewController: centerViewController)
         self.dynamicsDrawerViewController.setPaneViewController(paneNavigationContorller, animated: false, completion: nil)
+        centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] = centerViewController
         centerViewControllerBk = centerViewController
     }
     
