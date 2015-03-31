@@ -8,13 +8,22 @@
 
 import UIKit
 
+enum ThumbnailSize {
+    case Large
+    case Middle
+    case Small
+}
 
-let constHeightOfSlideCell:CGFloat = 240.0
+let constHeightOfSlideCellLarge:CGFloat = 240.0
+let constHeightOfSlideCellMiddle:CGFloat = 180.0
+let constHeightOfSlideCellSmall:CGFloat = 120.0
 
 class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate {
 
     var imageManager:ImageManager!
-
+    var thumbSize:ThumbnailSize = ThumbnailSize.Large
+    var thumbnailCell:CrossBaweCollectionViewCell!
+    
     
     @IBOutlet weak var baseCollectionView: UICollectionView!
     
@@ -34,6 +43,11 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
         imageManager.sortByKeyOfAssetDate()
     }
 
+    func setThumbnailSize( size:ThumbnailSize ) {
+        thumbSize = size
+        self.thumbnailCell.setThumbnailSize(size)
+        self.baseCollectionView.reloadData()
+    }
     func backButtonPushed() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -60,11 +74,26 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
         let cell:CrossBaweCollectionViewCell = self.baseCollectionView.dequeueReusableCellWithReuseIdentifier("BaseCollectionViewCell", forIndexPath: indexPath) as CrossBaweCollectionViewCell
         cell.imageArray = imageManager.getImageArray(imageManager.getSectionName(indexPath.section))
         cell.setup()
+        cell.setThumbnailSize(thumbSize)
+        thumbnailCell = cell
         return cell
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let width:CGFloat = self.baseCollectionView.bounds.width
-        let height:CGFloat = constHeightOfSlideCell
+        var width:CGFloat
+        var height:CGFloat
+        switch thumbSize {
+        case ThumbnailSize.Large:
+            width = self.baseCollectionView.bounds.width
+            height = constHeightOfSlideCellLarge
+        case ThumbnailSize.Middle:
+            width = self.baseCollectionView.bounds.width
+            height = constHeightOfSlideCellMiddle
+        case ThumbnailSize.Small:
+            width = self.baseCollectionView.bounds.width
+            height = constHeightOfSlideCellSmall
+        default:
+            println("Unknown size")
+        }
         return CGSizeMake(width, height)
     }
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {

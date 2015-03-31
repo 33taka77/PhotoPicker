@@ -29,6 +29,25 @@ class RightOptionSettingViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var selectorForThumbSize: UISegmentedControl!
+    
+    @IBAction func selectedSize(sender: AnyObject) {
+        let segment:UISegmentedControl! = sender as UISegmentedControl
+        let application:UIApplication = UIApplication.sharedApplication()
+        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        
+        switch segment.selectedSegmentIndex {
+        case 0:
+            appdelegate.changeCrossThumbSize(ThumbnailSize.Large)
+        case 1:
+            appdelegate.changeCrossThumbSize(ThumbnailSize.Middle)
+        case 2:
+            appdelegate.changeCrossThumbSize(ThumbnailSize.Small)
+        default:
+            println("Unknown segment")
+        }
+    }
+    
     @IBAction func changeStep(sender: AnyObject) {
         let c:Double = self.steper.value
         columnCont.text = convertDoubleToString(c)

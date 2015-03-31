@@ -12,7 +12,8 @@ import Photos
 class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource {
     var imageArray:[PHAsset] = []
     var imageManager:ImageManager!
-
+    var thumbSize:ThumbnailSize = ThumbnailSize.Large
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     func setup() {
@@ -21,7 +22,11 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         imageManager = ImageManager.sharedInstance
         self.collectionView.reloadData()
     }
-
+    
+    func setThumbnailSize( size:ThumbnailSize ) {
+        thumbSize = size
+        self.collectionView.reloadData()
+    }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageArray.count
     }
@@ -49,8 +54,21 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         let imgWidth:CGFloat = CGFloat(info.pixelWidth)
         let imgHeight:CGFloat = CGFloat(info.pixelHeight)
         //let width:CGFloat = imgWidth/imgHeight * constHeightOfSlideCell
-        let width:CGFloat = self.collectionView.frame.width - 10
-        let height:CGFloat = constHeightOfSlideCell
+        var width:CGFloat
+        var height:CGFloat
+        switch thumbSize {
+        case ThumbnailSize.Large:
+            width = self.collectionView.frame.width - 10
+            height = constHeightOfSlideCellLarge
+        case ThumbnailSize.Middle:
+            width = constHeightOfSlideCellMiddle
+            height = constHeightOfSlideCellMiddle
+        case ThumbnailSize.Small:
+            width = constHeightOfSlideCellSmall*imgHeight/imgWidth
+            height = constHeightOfSlideCellSmall
+        default:
+            println("Unknown Size")
+        }
         return CGSizeMake(width, height)
     }
     

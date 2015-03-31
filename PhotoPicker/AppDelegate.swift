@@ -45,6 +45,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
         self.dynamicsDrawerViewController.setPaneState(MSDynamicsDrawerPaneState.Open, inDirection:MSDynamicsDrawerDirection.Right, animated:true, allowUserInterruption:true, completion:nil);
     }
     
+    func changeCrossThumbSize( size:ThumbnailSize ) {
+        let centerViewController:CrossThumbnailViewController = centerControllerDictionary[CenterViewControllerType.clossCollectionThumbnai] as CrossThumbnailViewController
+        centerViewController.setThumbnailSize(size)
+    }
+    
     func changeWaterFallColumnCount( count:Int ) {
         let centerViewController:CenterThumbnailViewController = centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] as CenterThumbnailViewController
         centerViewController.columnCount = count
