@@ -199,7 +199,7 @@
                                 </items>
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DHK-JA-xgY">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <rect key="frame" x="0.0" y="-44" width="600" height="600"/>
                                 <color key="backgroundColor" red="0.29519807450000002" green="0.25115269959999997" blue="0.073489997700000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="acb-Os-T4I">
                                     <size key="itemSize" width="625" height="197"/>
@@ -292,16 +292,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CkL-1x-CVk" firstAttribute="top" secondItem="mzg-Hp-bvn" secondAttribute="bottom" id="AWg-4B-Ht2"/>
-                            <constraint firstItem="CkL-1x-CVk" firstAttribute="top" secondItem="DHK-JA-xgY" secondAttribute="bottom" id="C4I-7Q-XkV"/>
-                            <constraint firstItem="DHK-JA-xgY" firstAttribute="top" secondItem="6k0-2a-leU" secondAttribute="topMargin" id="K0f-ss-bE6"/>
-                            <constraint firstItem="CkL-1x-CVk" firstAttribute="top" secondItem="DHK-JA-xgY" secondAttribute="bottom" id="MGL-1q-YIx"/>
-                            <constraint firstItem="DHK-JA-xgY" firstAttribute="top" secondItem="6k0-2a-leU" secondAttribute="topMargin" id="Ug8-KX-12N"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DHK-JA-xgY" secondAttribute="trailing" constant="-16" id="V3i-bK-6h2"/>
+                            <constraint firstItem="mzg-Hp-bvn" firstAttribute="top" secondItem="DHK-JA-xgY" secondAttribute="bottom" id="RHC-nv-mPj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DHK-JA-xgY" secondAttribute="trailing" constant="-16" id="gx2-Vl-VvM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mzg-Hp-bvn" secondAttribute="trailing" constant="-16" id="hDP-kQ-Czz"/>
-                            <constraint firstItem="DHK-JA-xgY" firstAttribute="leading" secondItem="6k0-2a-leU" secondAttribute="leadingMargin" constant="-16" id="jG1-AH-pUc"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="DHK-JA-xgY" secondAttribute="trailing" constant="-16" id="prx-dX-C3u"/>
+                            <constraint firstItem="DHK-JA-xgY" firstAttribute="leading" secondItem="6k0-2a-leU" secondAttribute="leadingMargin" constant="-16" id="mJr-lS-hX8"/>
                             <constraint firstItem="mzg-Hp-bvn" firstAttribute="leading" secondItem="6k0-2a-leU" secondAttribute="leadingMargin" constant="-16" id="qGZ-kW-Zwi"/>
-                            <constraint firstItem="DHK-JA-xgY" firstAttribute="leading" secondItem="6k0-2a-leU" secondAttribute="leadingMargin" constant="-16" id="sPT-GH-enc"/>
+                            <constraint firstItem="DHK-JA-xgY" firstAttribute="top" secondItem="6k0-2a-leU" secondAttribute="topMargin" constant="-44" id="vA5-26-to2"/>
                         </constraints>
                     </view>
                     <connections>
@@ -361,10 +357,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ze8-Li-lEF">
-                                <rect key="frame" x="166" y="209" width="227" height="29"/>
+                                <rect key="frame" x="131" y="209" width="227" height="29"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="FAe-PL-oky"/>
-                                    <constraint firstAttribute="width" constant="227" id="vRT-g7-JVs"/>
+                                    <constraint firstAttribute="height" constant="28" id="70V-UI-zkH"/>
+                                    <constraint firstAttribute="width" constant="227" id="J7i-Df-UDS"/>
                                 </constraints>
                                 <segments>
                                     <segment title="WaterFall"/>
@@ -378,13 +374,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93913746843434343" green="0.686307770174718" blue="0.43381436724827538" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ze8-Li-lEF" firstAttribute="top" secondItem="SFV-Zb-dN2" secondAttribute="bottom" constant="8" id="Isq-cf-aCV"/>
+                            <constraint firstItem="ze8-Li-lEF" firstAttribute="top" secondItem="SFV-Zb-dN2" secondAttribute="bottom" constant="8" id="OU2-Ma-r0W"/>
                             <constraint firstItem="SFV-Zb-dN2" firstAttribute="top" secondItem="QUK-8h-wc3" secondAttribute="bottom" constant="53" id="VJj-2A-evc"/>
                             <constraint firstItem="QUK-8h-wc3" firstAttribute="leading" secondItem="trF-wK-WRc" secondAttribute="trailing" constant="8" id="Xle-th-Lfi"/>
                             <constraint firstItem="trF-wK-WRc" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="181" id="bHd-fq-A0f"/>
                             <constraint firstItem="SFV-Zb-dN2" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="150" id="dkV-qJ-fBR"/>
-                            <constraint firstItem="ze8-Li-lEF" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="150" id="ecT-3C-RiR"/>
                             <constraint firstItem="VTI-JR-ude" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leading" constant="166" id="iZ6-sY-QcO"/>
+                            <constraint firstItem="ze8-Li-lEF" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="115" id="kM9-p1-bNE"/>
                             <constraint firstItem="trF-wK-WRc" firstAttribute="top" secondItem="VTI-JR-ude" secondAttribute="bottom" constant="12" id="oTD-wC-bFX"/>
                             <constraint firstItem="VTI-JR-ude" firstAttribute="top" secondItem="DeJ-Rz-XEq" secondAttribute="bottom" constant="50" id="tIz-CL-pfR"/>
                             <constraint firstItem="QUK-8h-wc3" firstAttribute="top" secondItem="VTI-JR-ude" secondAttribute="bottom" constant="8" id="yHX-1g-hMh"/>
