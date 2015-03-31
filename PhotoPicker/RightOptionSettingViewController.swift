@@ -13,6 +13,22 @@ class RightOptionSettingViewController: UIViewController {
     @IBOutlet weak var columnCont: UILabel!
     @IBOutlet weak var steper: UIStepper!
     
+    @IBOutlet weak var dispModeSegment: UISegmentedControl!
+    @IBAction func changeDispMode(sender: AnyObject) {
+        let segment:UISegmentedControl! = sender as UISegmentedControl
+        let application:UIApplication = UIApplication.sharedApplication()
+        let appdelegate:AppDelegate = application.delegate as AppDelegate
+
+        switch segment.selectedSegmentIndex {
+        case 0:
+            appdelegate.setCenterViewController(CenterViewControllerType.waterFallThumbnail)
+        case 1:
+            appdelegate.setCenterViewController(CenterViewControllerType.clossCollectionThumbnai)
+        default:
+            println("Unknown segment")
+        }
+    }
+    
     @IBAction func changeStep(sender: AnyObject) {
         let c:Double = self.steper.value
         columnCont.text = convertDoubleToString(c)
