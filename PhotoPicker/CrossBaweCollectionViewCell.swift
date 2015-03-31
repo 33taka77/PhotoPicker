@@ -20,6 +20,9 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         imageManager = ImageManager.sharedInstance
+        let layout:MyCollectionFlowLayout = MyCollectionFlowLayout()
+        layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
+        self.collectionView.setCollectionViewLayout(layout, animated: true)
         self.collectionView.reloadData()
     }
     
