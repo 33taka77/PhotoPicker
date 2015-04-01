@@ -28,6 +28,11 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
     
     func setThumbnailSize( size:ThumbnailSize ) {
         thumbSize = size
+        if thumbSize != ThumbnailSize.Large {
+            self.collectionView.pagingEnabled = false
+        }else{
+            self.collectionView.pagingEnabled = true
+        }
         self.collectionView.reloadData()
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

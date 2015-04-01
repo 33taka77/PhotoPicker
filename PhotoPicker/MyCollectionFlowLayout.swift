@@ -20,9 +20,9 @@ class MyCollectionFlowLayout: UICollectionViewFlowLayout {
         return attributes
     }
     
-    /*
+    
     override func targetContentOffsetForProposedContentOffset(proposedContentOffset:CGPoint, withScrollingVelocity velocity:CGPoint )->CGPoint {
-        /*
+    
         var offsetAdjustment:CGFloat = CGFloat(MAXFLOAT)
         let horizontalOffset:CGFloat = proposedContentOffset.x + (self.collectionView?.bounds.size.width)! / 2.0
         let targetRect = CGRectMake(proposedContentOffset.x, 0, (self.collectionView?.bounds.size.width)!, (self.collectionView?.bounds.size.height)!)
@@ -34,7 +34,8 @@ class MyCollectionFlowLayout: UICollectionViewFlowLayout {
             }
         }
         return CGPointMake(proposedContentOffset.x + offsetAdjustment, proposedContentOffset.y)
-        */
+
+        /*
         var offsetAdjustment:CGFloat = CGFloat(MAXFLOAT)
         let horizontalCenter:CGFloat = proposedContentOffset.x + (self.collectionView?.bounds.size.width)! / 2.0
 
@@ -52,6 +53,7 @@ class MyCollectionFlowLayout: UICollectionViewFlowLayout {
             }
         }
         return CGPointMake(proposedContentOffset.x + offsetAdjustment, proposedContentOffset.y)
+        */
     }
-    */
+    
 }

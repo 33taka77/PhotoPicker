@@ -77,9 +77,11 @@ class ImageManager {
             moments.enumerateObjectsUsingBlock { (object, index, flag) -> Void in
                 let assets:PHFetchResult! = PHAsset.fetchAssetsInAssetCollection(object as PHAssetCollection, options: nil)
                 assets.enumerateObjectsUsingBlock({ (asset, indexOfAsset, flag) -> Void in
-                    let tempObj:PHAsset = asset as PHAsset
-                    self.assetsArray.append(tempObj)
-                    update()
+                    let tempObj:PHAsset? = asset as? PHAsset
+                    if (tempObj != nil){
+                        self.assetsArray.append(tempObj!)
+                        update()
+                    }
                 })
             }
         }
