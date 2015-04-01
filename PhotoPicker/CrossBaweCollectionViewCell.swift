@@ -22,7 +22,7 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         imageManager = ImageManager.sharedInstance
         let layout:MyCollectionFlowLayout = MyCollectionFlowLayout()
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
-        self.collectionView.setCollectionViewLayout(layout, animated: true)
+        //self.collectionView.setCollectionViewLayout(layout, animated: true)
         self.collectionView.reloadData()
     }
     
@@ -45,12 +45,14 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         //et imgWidth:CGFloat = info["pixelWidth"] as CGFloat
         //let imgHeight:CGFloat = info["pixelHeight"] as CGFloat
         
+        /*
         let imgWidth:CGFloat = CGFloat(asset.pixelWidth)
         let imgHeight = CGFloat(asset.pixelHeight)
         let sizeX:CGFloat =  CGFloat(asset.pixelWidth/2)
         let sizeY:CGFloat = CGFloat(asset.pixelHeight/2)
+        */
         
-        PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(sizeX, sizeY), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
+        PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(500, 500), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
             cell.imageView.image = image
         })
         //let imgData:UIImage = imageManager.GetImageData(imageArray[indexPath.row], size: CGSizeMake(imgWidth,imgHeight) )
@@ -58,12 +60,18 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         return cell
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let info:PHAsset = imageArray[indexPath.row] as PHAsset
+        let index:Int = indexPath.item
+        if index >= imageArray.count {
+            println("index error")
+        }
+        
+        let info:PHAsset = imageArray[indexPath.item] as PHAsset
         let imgWidth:CGFloat = CGFloat(info.pixelWidth)
         let imgHeight:CGFloat = CGFloat(info.pixelHeight)
         //let width:CGFloat = imgWidth/imgHeight * constHeightOfSlideCell
-        var width:CGFloat
-        var height:CGFloat
+        
+        var width:CGFloat = constHeightOfSlideCellMiddle
+        var height:CGFloat = constHeightOfSlideCellMiddle
         switch thumbSize {
         case ThumbnailSize.Large:
             width = self.collectionView.frame.width - 10
@@ -71,9 +79,11 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         case ThumbnailSize.Middle:
             width = constHeightOfSlideCellMiddle
             height = constHeightOfSlideCellMiddle
+            
         case ThumbnailSize.Small:
             width = constHeightOfSlideCellSmall*imgHeight/imgWidth
             height = constHeightOfSlideCellSmall
+            
         default:
             println("Unknown Size")
         }

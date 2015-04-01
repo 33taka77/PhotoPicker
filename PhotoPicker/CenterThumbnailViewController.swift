@@ -78,14 +78,16 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         let cell:ThumbnailWaterFallCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("ThumbnailWaterFallCell", forIndexPath: indexPath) as ThumbnailWaterFallCollectionViewCell
         
         let asset:PHAsset = imageManager.getAsset(indexPath.row) as PHAsset
+        /*
         let imgWidth:CGFloat = CGFloat(asset.pixelWidth)
         let imgHeight = CGFloat(asset.pixelHeight)
         let sizeX:CGFloat =  CGFloat(asset.pixelWidth/4)
         let sizeY:CGFloat = CGFloat(asset.pixelHeight/4)
-        
-        PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(sizeX, sizeY), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
+        */
+        PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(250, 250), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
             cell.thumbnailImageView.image = image
         })
+        
         return cell
     }
     
@@ -97,6 +99,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
             println("nil error")
         }
         let size:CGSize = cellSizes[indexPath.item]
+        //let size:CGSize = CGSizeMake(120, 100)
         return size
     }
     
