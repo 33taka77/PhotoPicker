@@ -14,9 +14,25 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     private var imageManager:ImageManager!
     private var collectionLayout:CHTCollectionViewWaterfallLayout!
     private var cellSizes:[CGSize] = []
-
+    private var selectModeFlag:Bool = false
+    private var selectedItemArray:[Int] = []
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var selectModeButton: UIBarButtonItem!
+    @IBAction func pushuSelectModeChange(sender: AnyObject) {
+        if selectModeFlag == true {
+            self.navigationItem.title = "写真閲覧"
+            selectModeButton.image = UIImage(named: "check25.png")
+            selectModeFlag = false
+            clearAllSellect()
+        }else{
+            selectModeFlag = true
+            self.navigationItem.title = "写真選択モード"
+            selectModeButton.image = UIImage(named: "Activity Grid 2-32.png")
+        }
+        
+    }
     var columnCount:Int {
         get{
             return collectionLayout.columnCount
@@ -30,6 +46,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.navigationItem.title = "写真閲覧"
         let iconHome:UIImage = UIImage(named: "Home-51.png")!
         let leftButton:UIBarButtonItem = UIBarButtonItem(image: iconHome, style: UIBarButtonItemStyle.Plain, target: self, action: "backButtonPushed")
         self.navigationItem.leftBarButtonItem = leftButton
@@ -41,8 +58,22 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         imageManager = ImageManager.sharedInstance
         imageManager.collectAssets { () -> Void in
             self.collectionView.reloadData()
+
         }
     }
+    func clearAllSellect() {
+        for var i = 0; i < imageManager.getCountOfSelectedItems(); i++ {
+            /*
+            let index:NSIndexPath = NSIndexPath(forItem:imageManager.getSelectedItem(i), inSection: 0)
+            let cell:ThumbnailWaterFallCollectionViewCell = self.collectionView.cellForItemAtIndexPath(index) as ThumbnailWaterFallCollectionViewCell
+            
+            cell.checkButton.hidden = true
+            cell.selectedStatus = false
+            */
+        }
+        imageManager.removeAllSelectedItemIndex()
+        self.collectionView.reloadData()
+     }
     func backButtonPushed() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
@@ -86,9 +117,17 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         */
         PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(250, 250), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
             cell.thumbnailImageView.image = image
+            if self.imageManager.isSelected(indexPath.row) == false {
+                cell.checkButton.hidden = true
+            }else{
+                cell.checkButton.hidden = false
+            }
         })
         
-        return cell
+        if indexPath.row == 0 {
+            println("Debug")
+        }
+       return cell
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -103,7 +142,23 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         return size
     }
     
-
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if self.selectModeFlag == true {
+            
+            let cell:ThumbnailWaterFallCollectionViewCell = self.collectionView.cellForItemAtIndexPath(indexPath) as ThumbnailWaterFallCollectionViewCell
+            if imageManager.isSelected(indexPath.row) == false {
+                //cell.selectedStatus = false
+                cell.checkButton.hidden = false
+                imageManager.appendSelectedItemIndex(indexPath.row)
+            }else{
+                //cell.selectedStatus = true
+                cell.checkButton.hidden = true
+                imageManager.removeSelectedItemIndex(indexPath.row)
+            }
+        }else{
+            
+        }
+    }
 
     /*
     // MARK: - Navigation

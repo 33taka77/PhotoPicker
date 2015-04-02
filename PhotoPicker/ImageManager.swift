@@ -26,7 +26,8 @@ class ImageManager {
     //private var sortDictionary:Dictionary<String,AnyObject> = [:]
     private var images:[[AnyObject]] = [[AnyObject]]()
     private var sectionNames:[String] = [String]()
-    
+    private var selectedItemArray:[Int] = []
+
     var sectionCount:Int {
         get{
             return sectionNames.count
@@ -68,6 +69,29 @@ class ImageManager {
     func getAsset(section:Int, index:Int)->AnyObject {
         let array:[PHAsset] = images[section] as [PHAsset]
         return array[index]
+    }
+    func isSelected(index:Int)->Bool {
+        var result:Bool
+        result = contains(selectedItemArray, index)
+        return result
+    }
+    func appendSelectedItemIndex( addIndex:Int ) {
+        selectedItemArray.append(addIndex)
+    }
+    func removeSelectedItemIndex( deleteIndex:Int ) {
+        let i = find(selectedItemArray, deleteIndex)
+        if( i != nil ){
+            selectedItemArray.removeAtIndex(i!)
+        }
+    }
+    func getCountOfSelectedItems()->Int {
+        return selectedItemArray.count
+    }
+    func removeAllSelectedItemIndex() {
+        selectedItemArray.removeAll(keepCapacity: true)
+    }
+    func getSelectedItem(i:Int)->Int {
+        return selectedItemArray[i] as Int
     }
     func collectAssets(update: ()->Void) {
         let momentsList:PHFetchResult! = PHCollectionList.fetchCollectionListsWithType(PHCollectionListType.MomentList, subtype: PHCollectionListSubtype.Any, options: nil)

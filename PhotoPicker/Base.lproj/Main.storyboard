@@ -140,17 +140,31 @@
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zCv-kc-H9J">
                                                     <rect key="frame" x="0.0" y="0.0" width="116" height="98"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ec4-bF-KrG">
+                                                    <rect key="frame" x="84" y="66" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="dYd-Rs-9vi"/>
+                                                        <constraint firstAttribute="width" constant="24" id="dj0-Io-aNq"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <state key="normal" image="ok.png">
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="Ec4-bF-KrG" firstAttribute="trailing" secondItem="1H0-Hy-Jlx" secondAttribute="trailingMargin" id="GXk-XA-0Mw"/>
                                             <constraint firstItem="zCv-kc-H9J" firstAttribute="top" secondItem="1H0-Hy-Jlx" secondAttribute="topMargin" constant="-8" id="NQR-qr-Sr3"/>
+                                            <constraint firstItem="Ec4-bF-KrG" firstAttribute="bottom" secondItem="1H0-Hy-Jlx" secondAttribute="bottomMargin" id="SeR-uY-cd8"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="zCv-kc-H9J" secondAttribute="bottom" constant="-8" id="mch-vH-qO3"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="zCv-kc-H9J" secondAttribute="trailing" constant="-8" id="p3O-94-Bqg"/>
                                             <constraint firstItem="zCv-kc-H9J" firstAttribute="leading" secondItem="1H0-Hy-Jlx" secondAttribute="leadingMargin" constant="-8" id="vBg-7F-4Es"/>
                                         </constraints>
                                         <size key="customSize" width="116" height="98"/>
                                         <connections>
+                                            <outlet property="checkButton" destination="Ec4-bF-KrG" id="y3w-WE-hi7"/>
                                             <outlet property="thumbnailImageView" destination="zCv-kc-H9J" id="AaV-zQ-sYB"/>
                                         </connections>
                                     </collectionViewCell>
@@ -160,17 +174,36 @@
                                     <outlet property="delegate" destination="8vM-Y2-gMA" id="r7p-Z9-0cp"/>
                                 </connections>
                             </collectionView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fy9-Sg-EeX">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="g7w-QQ-6nV"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem image="check25.png" width="80" id="Wod-Z8-lUj">
+                                        <connections>
+                                            <action selector="pushuSelectModeChange:" destination="8vM-Y2-gMA" id="FcD-Z7-PiF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem image="arrow426.png" width="80" id="bOa-vq-021"/>
+                                    <barButtonItem title="削除" width="80" id="vFp-Cm-2d3"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.29519807450000002" green="0.25115269959999997" blue="0.073489997700000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="221-4e-qXS" firstAttribute="top" secondItem="ASR-I3-8CZ" secondAttribute="topMargin" id="ATi-MK-UfW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Fy9-Sg-EeX" secondAttribute="trailing" constant="-16" id="JX7-yL-z09"/>
+                            <constraint firstItem="Fy9-Sg-EeX" firstAttribute="leading" secondItem="ASR-I3-8CZ" secondAttribute="leadingMargin" constant="-16" id="MJN-mu-ErO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="221-4e-qXS" secondAttribute="trailing" constant="-16" id="MUt-IZ-UZF"/>
                             <constraint firstItem="221-4e-qXS" firstAttribute="leading" secondItem="ASR-I3-8CZ" secondAttribute="leadingMargin" constant="-16" id="Wwy-Xi-kfK"/>
                             <constraint firstItem="gfA-s1-5Dt" firstAttribute="top" secondItem="221-4e-qXS" secondAttribute="bottom" id="Zmr-bz-hM8"/>
+                            <constraint firstItem="gfA-s1-5Dt" firstAttribute="top" secondItem="Fy9-Sg-EeX" secondAttribute="bottom" id="vml-m6-EQ8"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="collectionView" destination="221-4e-qXS" id="MSj-cz-XUh"/>
+                        <outlet property="selectModeButton" destination="Wod-Z8-lUj" id="Td2-Wf-L6v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kNL-8c-Fcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -195,7 +228,7 @@
                                     <constraint firstAttribute="height" constant="44" id="PmD-vp-jDc"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem title="Item" id="hpu-E8-gEz"/>
+                                    <barButtonItem image="check25.png" width="40" id="hpu-E8-gEz"/>
                                 </items>
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DHK-JA-xgY">
@@ -280,7 +313,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.894235322" green="0.54474007710000005" blue="0.19196648760000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" red="0.25434027777777779" green="0.1545964651669692" blue="0.052761520035242988" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="centerY" secondItem="rTX-2R-8VM" secondAttribute="centerY" id="7xK-Oh-9By"/>
                                         <constraint firstAttribute="centerX" secondItem="rTX-2R-8VM" secondAttribute="centerX" id="GcT-Vt-bV1"/>
@@ -297,8 +330,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="CkL-1x-CVk" firstAttribute="top" secondItem="mzg-Hp-bvn" secondAttribute="bottom" id="3xy-1a-zdA"/>
                             <constraint firstItem="CkL-1x-CVk" firstAttribute="top" secondItem="mzg-Hp-bvn" secondAttribute="bottom" id="AWg-4B-Ht2"/>
                             <constraint firstItem="mzg-Hp-bvn" firstAttribute="top" secondItem="DHK-JA-xgY" secondAttribute="bottom" id="RHC-nv-mPj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mzg-Hp-bvn" secondAttribute="trailing" constant="-16" id="Xd4-Q3-ypP"/>
+                            <constraint firstItem="mzg-Hp-bvn" firstAttribute="leading" secondItem="6k0-2a-leU" secondAttribute="leadingMargin" constant="-16" id="YT2-8f-qAW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="DHK-JA-xgY" secondAttribute="trailing" constant="-16" id="gx2-Vl-VvM"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mzg-Hp-bvn" secondAttribute="trailing" constant="-16" id="hDP-kQ-Czz"/>
                             <constraint firstItem="DHK-JA-xgY" firstAttribute="leading" secondItem="6k0-2a-leU" secondAttribute="leadingMargin" constant="-16" id="mJr-lS-hX8"/>
@@ -447,7 +483,10 @@
     </scenes>
     <resources>
         <image name="Settings3-50.png" width="50" height="50"/>
+        <image name="arrow426.png" width="16" height="16"/>
+        <image name="check25.png" width="16" height="16"/>
         <image name="information32.png" width="128" height="128"/>
+        <image name="ok.png" width="24" height="24"/>
         <image name="photo32.png" width="128" height="128"/>
         <image name="pictures1.png" width="128" height="128"/>
     </resources>

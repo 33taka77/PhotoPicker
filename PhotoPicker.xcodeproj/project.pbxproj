@@ -17,6 +17,8 @@
 		8194A3151ACA23EB007B2499 /* CrossBaweCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A3141ACA23EB007B2499 /* CrossBaweCollectionViewCell.swift */; };
 		8194A3171ACA24CB007B2499 /* CrossBaesHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A3161ACA24CB007B2499 /* CrossBaesHeaderCollectionReusableView.swift */; };
 		8194A3191ACA2885007B2499 /* CrossThumbnailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8194A3181ACA2885007B2499 /* CrossThumbnailCollectionViewCell.swift */; };
+		81BF89811ACCF747006BAEF6 /* ok.png in Resources */ = {isa = PBXBuildFile; fileRef = 81BF89801ACCF747006BAEF6 /* ok.png */; };
+		81BF89831ACD0BC8006BAEF6 /* Activity Grid 2-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 81BF89821ACD0BC8006BAEF6 /* Activity Grid 2-32.png */; };
 		F937B5691AC82BFD0001FB6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B5681AC82BFD0001FB6F /* AppDelegate.swift */; };
 		F937B56C1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F937B56A1AC82BFD0001FB6F /* PhotoPicker.xcdatamodeld */; };
 		F937B56E1AC82BFD0001FB6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F937B56D1AC82BFD0001FB6F /* ViewController.swift */; };
@@ -65,6 +67,8 @@
 		8194A3141ACA23EB007B2499 /* CrossBaweCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossBaweCollectionViewCell.swift; sourceTree = "<group>"; };
 		8194A3161ACA24CB007B2499 /* CrossBaesHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossBaesHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		8194A3181ACA2885007B2499 /* CrossThumbnailCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrossThumbnailCollectionViewCell.swift; sourceTree = "<group>"; };
+		81BF89801ACCF747006BAEF6 /* ok.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ok.png; sourceTree = "<group>"; };
+		81BF89821ACD0BC8006BAEF6 /* Activity Grid 2-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Activity Grid 2-32.png"; sourceTree = "<group>"; };
 		B5C6A2334A7605C1635E03C8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		F937B5631AC82BFD0001FB6F /* PhotoPicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoPicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F937B5671AC82BFD0001FB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -225,6 +229,8 @@
 		F952B6021AC972AA00DE515F /* icon */ = {
 			isa = PBXGroup;
 			children = (
+				81BF89821ACD0BC8006BAEF6 /* Activity Grid 2-32.png */,
+				81BF89801ACCF747006BAEF6 /* ok.png */,
 				F952B6051AC980DC00DE515F /* Activity Feed 2-51ー.png */,
 				F952B6061AC980DC00DE515F /* Home-51.png */,
 				F952B6031AC9753300DE515F /* information32.png */,
@@ -330,6 +336,7 @@
 				F937B5711AC82BFD0001FB6F /* Main.storyboard in Resources */,
 				F952B6001AC9728B00DE515F /* Settings3-50.png in Resources */,
 				F952B5F91AC9728B00DE515F /* check25.png in Resources */,
+				81BF89811ACCF747006BAEF6 /* ok.png in Resources */,
 				F952B5FE1AC9728B00DE515F /* Activity Grid 2-50.png in Resources */,
 				F952B6081AC980DC00DE515F /* Home-51.png in Resources */,
 				F952B6071AC980DC00DE515F /* Activity Feed 2-51ー.png in Resources */,
@@ -340,6 +347,7 @@
 				F952B5FB1AC9728B00DE515F /* move13.png in Resources */,
 				F937B5761AC82BFD0001FB6F /* LaunchScreen.xib in Resources */,
 				F937B58C1AC82C2A0001FB6F /* podfile in Resources */,
+				81BF89831ACD0BC8006BAEF6 /* Activity Grid 2-32.png in Resources */,
 				F952B5FF1AC9728B00DE515F /* Activity Feed 2-50.png in Resources */,
 				F937B5731AC82BFD0001FB6F /* Images.xcassets in Resources */,
 				F952B6041AC9753300DE515F /* information32.png in Resources */,

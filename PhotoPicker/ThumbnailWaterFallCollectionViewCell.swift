@@ -10,5 +10,16 @@ import UIKit
 
 class ThumbnailWaterFallCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var thumbnailImageView: UIImageView!
+    private var isSelected:Bool = false
+    
+    var selectedStatus:Bool {
+        get{
+            return isSelected
+        }
+        set(flag){
+            isSelected = flag
+        }
+    }
 }
