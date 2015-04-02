@@ -23,7 +23,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     @IBAction func pushuSelectModeChange(sender: AnyObject) {
         if selectModeFlag == true {
             self.navigationItem.title = "写真閲覧"
-            selectModeButton.image = UIImage(named: "check25.png")
+            selectModeButton.image = UIImage(named: "icon_box-checked.png")
             selectModeFlag = false
             hideToolBarButtons()
             clearAllSellect()
@@ -84,10 +84,10 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         }
     }
     func showToolBarButtons() {
-        let item:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow426.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "pushShareButton")
+        let item:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "1428027456_common_share_action-128-3.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "pushShareButton")
         item.width = 80
         toolBar.items?.append(item)
-        let item2:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow426.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "")
+        let item2:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_trash_alt.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "")
         item2.width = 80
         toolBar.items?.append(item2)
         

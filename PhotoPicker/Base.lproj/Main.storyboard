@@ -180,7 +180,7 @@
                                     <constraint firstAttribute="height" constant="44" id="g7w-QQ-6nV"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem image="check25.png" width="80" id="Wod-Z8-lUj">
+                                    <barButtonItem image="icon_box-checked.png" width="80" id="Wod-Z8-lUj">
                                         <connections>
                                             <action selector="pushuSelectModeChange:" destination="8vM-Y2-gMA" id="FcD-Z7-PiF"/>
                                         </connections>
@@ -227,7 +227,7 @@
                                     <constraint firstAttribute="height" constant="44" id="PmD-vp-jDc"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem image="check25.png" width="40" id="hpu-E8-gEz"/>
+                                    <barButtonItem image="icon_box-checked.png" width="40" id="hpu-E8-gEz"/>
                                 </items>
                             </toolbar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="DHK-JA-xgY">
@@ -488,7 +488,7 @@
     </scenes>
     <resources>
         <image name="Settings3-50.png" width="50" height="50"/>
-        <image name="check25.png" width="16" height="16"/>
+        <image name="icon_box-checked.png" width="32" height="32"/>
         <image name="information32.png" width="128" height="128"/>
         <image name="ok.png" width="24" height="24"/>
         <image name="photo32.png" width="128" height="128"/>
