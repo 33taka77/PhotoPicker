@@ -40,9 +40,10 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     @IBOutlet weak var eraseButton: UIBarButtonItem!
     func pushShareButton() {
         var selectedImageArray:[UIImage] = []
-        for var i = 0; i < imageManager.getCountOfSelectedItems(); i++ {
-            let index = imageManager.getSelectedItem(i)
-            let item:PHAsset = imageManager.getAsset(index) as PHAsset
+        for var i = 0; i < imageManager.getCountOfSelectedItemsIndex(); i++ {
+            //let index = imageManager.getSelectedItem(i)
+            let index = imageManager.getSelectedItemIndex(i)
+            let item:PHAsset = imageManager.getAsset(index.row) as PHAsset
             let width:CGFloat = CGFloat(item.pixelWidth)
             let height:CGFloat = CGFloat(item.pixelHeight)
             PHImageManager.defaultManager().requestImageForAsset(item, targetSize: CGSizeMake(width, height), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
@@ -152,7 +153,8 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         */
         PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(250, 250), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
             cell.thumbnailImageView.image = image
-            if self.imageManager.isSelected(indexPath.row) == false {
+            //if self.imageManager.isSelected(indexPath.row) == false {
+            if self.imageManager.isSelected(indexPath) == false {
                 cell.checkButton.hidden = true
             }else{
                 cell.checkButton.hidden = false
@@ -181,14 +183,15 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         if self.selectModeFlag == true {
             
             let cell:ThumbnailWaterFallCollectionViewCell = self.collectionView.cellForItemAtIndexPath(indexPath) as ThumbnailWaterFallCollectionViewCell
-            if imageManager.isSelected(indexPath.row) == false {
+            //if imageManager.isSelected(indexPath.row) == false {
+            if imageManager.isSelected(indexPath) == false {
                 //cell.selectedStatus = false
                 cell.checkButton.hidden = false
-                imageManager.appendSelectedItemIndex(indexPath.row)
+                imageManager.appendSelectedItemIndex(indexPath)
             }else{
                 //cell.selectedStatus = true
                 cell.checkButton.hidden = true
-                imageManager.removeSelectedItemIndex(indexPath.row)
+                imageManager.removeSelectedItemIndex(indexPath)
             }
         }else{
             

@@ -27,6 +27,7 @@ class ImageManager {
     private var images:[[AnyObject]] = [[AnyObject]]()
     private var sectionNames:[String] = [String]()
     private var selectedItemArray:[Int] = []
+    private var selectedItemArrayIndex:[NSIndexPath] = []
 
     var sectionCount:Int {
         get{
@@ -75,23 +76,47 @@ class ImageManager {
         result = contains(selectedItemArray, index)
         return result
     }
+    func isSelected(index:NSIndexPath)->Bool {
+        var result:Bool
+        result = contains(selectedItemArrayIndex, index)
+        return result
+    }
     func appendSelectedItemIndex( addIndex:Int ) {
         selectedItemArray.append(addIndex)
     }
+    func appendSelectedItemIndex( addIndex:NSIndexPath ) {
+        selectedItemArrayIndex.append(addIndex)
+    }
+
     func removeSelectedItemIndex( deleteIndex:Int ) {
         let i = find(selectedItemArray, deleteIndex)
         if( i != nil ){
             selectedItemArray.removeAtIndex(i!)
         }
     }
+    func removeSelectedItemIndex( deleteIndex:NSIndexPath ) {
+        let i = find(selectedItemArrayIndex, deleteIndex)
+        if( i != nil ){
+            selectedItemArrayIndex.removeAtIndex(i!)
+        }
+    }
     func getCountOfSelectedItems()->Int {
         return selectedItemArray.count
     }
-    func removeAllSelectedItemIndex() {
+    func getCountOfSelectedItemsIndex()->Int {
+        return selectedItemArrayIndex.count
+    }
+    func removeAllSelectedItem() {
         selectedItemArray.removeAll(keepCapacity: true)
+    }
+    func removeAllSelectedItemIndex() {
+        selectedItemArrayIndex.removeAll(keepCapacity: true)
     }
     func getSelectedItem(i:Int)->Int {
         return selectedItemArray[i] as Int
+    }
+    func getSelectedItemIndex(i:Int)->NSIndexPath {
+        return selectedItemArrayIndex[i] as NSIndexPath
     }
     func collectAssets(update: ()->Void) {
         let momentsList:PHFetchResult! = PHCollectionList.fetchCollectionListsWithType(PHCollectionListType.MomentList, subtype: PHCollectionListSubtype.Any, options: nil)
