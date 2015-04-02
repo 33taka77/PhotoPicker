@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -185,8 +185,6 @@
                                             <action selector="pushuSelectModeChange:" destination="8vM-Y2-gMA" id="FcD-Z7-PiF"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem image="arrow426.png" width="80" id="bOa-vq-021"/>
-                                    <barButtonItem title="削除" width="80" id="vFp-Cm-2d3"/>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -204,6 +202,7 @@
                     <connections>
                         <outlet property="collectionView" destination="221-4e-qXS" id="MSj-cz-XUh"/>
                         <outlet property="selectModeButton" destination="Wod-Z8-lUj" id="Td2-Wf-L6v"/>
+                        <outlet property="toolBar" destination="Fy9-Sg-EeX" id="mdG-pH-Ixj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kNL-8c-Fcs" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -363,13 +362,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Image column count" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTI-JR-ude">
-                                <rect key="frame" x="173" y="289" width="157" height="21"/>
+                                <rect key="frame" x="186" y="289" width="157" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="157" id="7hQ-hx-eno"/>
                                     <constraint firstAttribute="height" constant="21" id="VZe-2P-IXc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="QUK-8h-wc3">
@@ -389,21 +388,21 @@
                                     <constraint firstAttribute="height" constant="21" id="giF-xo-reu"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Display mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFV-Zb-dN2">
-                                <rect key="frame" x="173" y="56" width="148" height="21"/>
+                                <rect key="frame" x="186" y="56" width="148" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="148" id="6cl-Fw-cpz"/>
                                     <constraint firstAttribute="height" constant="21" id="oJc-gT-WWE"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ze8-Li-lEF">
-                                <rect key="frame" x="127" y="85" width="227" height="29"/>
+                                <rect key="frame" x="186" y="85" width="227" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="FdK-CD-gDL"/>
                                     <constraint firstAttribute="width" constant="227" id="jhL-5h-RLi"/>
@@ -418,17 +417,17 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WaterFall mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcV-nM-iNE">
-                                <rect key="frame" x="141" y="257" width="138" height="24"/>
+                                <rect key="frame" x="186" y="257" width="138" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="138" id="Oyl-F8-0Vd"/>
                                     <constraint firstAttribute="height" constant="24" id="pNx-ch-Jvr"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cross mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EN7-Ep-i0S">
-                                <rect key="frame" x="141" y="368" width="108" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cross mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EN7-Ep-i0S">
+                                <rect key="frame" x="186" y="368" width="138" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="108" id="40C-3r-uo4"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="YeL-ri-u3c"/>
@@ -436,11 +435,15 @@
                                     <constraint firstAttribute="width" constant="138" id="nv2-mE-Iww"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tjN-hw-qLA">
-                                <rect key="frame" x="127" y="400" width="227" height="29"/>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tjN-hw-qLA">
+                                <rect key="frame" x="186" y="400" width="227" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="POw-6m-nN8"/>
+                                    <constraint firstAttribute="width" constant="227" id="uMS-th-POd"/>
+                                </constraints>
                                 <segments>
                                     <segment title="Large"/>
                                     <segment title="Middle"/>
@@ -453,17 +456,19 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93913746843434343" green="0.686307770174718" blue="0.43381436724827538" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="ze8-Li-lEF" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="111" id="6cv-lF-tg0"/>
-                            <constraint firstItem="EN7-Ep-i0S" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="125" id="90W-6O-T8y"/>
+                            <constraint firstItem="ze8-Li-lEF" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="170" id="6cv-lF-tg0"/>
+                            <constraint firstItem="EN7-Ep-i0S" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="170" id="90W-6O-T8y"/>
                             <constraint firstItem="QUK-8h-wc3" firstAttribute="leading" secondItem="trF-wK-WRc" secondAttribute="trailing" constant="8" id="G9d-GX-Zjj"/>
-                            <constraint firstItem="SFV-Zb-dN2" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="157" id="RIa-Su-BBc"/>
+                            <constraint firstItem="SFV-Zb-dN2" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="170" id="RIa-Su-BBc"/>
+                            <constraint firstItem="tjN-hw-qLA" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="170" id="SJM-YK-a3F"/>
                             <constraint firstItem="trF-wK-WRc" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="186" id="V28-qW-kJG"/>
                             <constraint firstItem="VTI-JR-ude" firstAttribute="top" secondItem="dcV-nM-iNE" secondAttribute="bottom" constant="8" id="fIG-8T-ZKW"/>
-                            <constraint firstItem="dcV-nM-iNE" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="125" id="fey-KE-eZK"/>
+                            <constraint firstItem="dcV-nM-iNE" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="170" id="fey-KE-eZK"/>
                             <constraint firstItem="trF-wK-WRc" firstAttribute="top" secondItem="VTI-JR-ude" secondAttribute="bottom" constant="12" id="gCf-cE-IgW"/>
                             <constraint firstItem="dcV-nM-iNE" firstAttribute="top" secondItem="ze8-Li-lEF" secondAttribute="bottom" constant="144" id="gkN-sK-sIf"/>
                             <constraint firstItem="EN7-Ep-i0S" firstAttribute="top" secondItem="QUK-8h-wc3" secondAttribute="bottom" constant="21" id="lb2-8i-Ued"/>
-                            <constraint firstItem="VTI-JR-ude" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="157" id="mnG-no-m9P"/>
+                            <constraint firstItem="VTI-JR-ude" firstAttribute="leading" secondItem="qac-Ak-nHI" secondAttribute="leadingMargin" constant="170" id="mnG-no-m9P"/>
+                            <constraint firstItem="l7k-VG-6My" firstAttribute="top" secondItem="tjN-hw-qLA" secondAttribute="bottom" constant="172" id="u0Z-rU-C6L"/>
                             <constraint firstItem="QUK-8h-wc3" firstAttribute="top" secondItem="VTI-JR-ude" secondAttribute="bottom" constant="8" id="uGi-lR-95V"/>
                             <constraint firstItem="SFV-Zb-dN2" firstAttribute="top" secondItem="DeJ-Rz-XEq" secondAttribute="bottom" constant="36" id="v0u-dk-o2U"/>
                             <constraint firstItem="ze8-Li-lEF" firstAttribute="top" secondItem="SFV-Zb-dN2" secondAttribute="bottom" constant="8" id="vUL-Jt-fFJ"/>
@@ -483,7 +488,6 @@
     </scenes>
     <resources>
         <image name="Settings3-50.png" width="50" height="50"/>
-        <image name="arrow426.png" width="16" height="16"/>
         <image name="check25.png" width="16" height="16"/>
         <image name="information32.png" width="128" height="128"/>
         <image name="ok.png" width="24" height="24"/>

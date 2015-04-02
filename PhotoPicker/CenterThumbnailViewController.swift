@@ -25,14 +25,35 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
             self.navigationItem.title = "写真閲覧"
             selectModeButton.image = UIImage(named: "check25.png")
             selectModeFlag = false
+            hideToolBarButtons()
             clearAllSellect()
         }else{
             selectModeFlag = true
             self.navigationItem.title = "写真選択モード"
             selectModeButton.image = UIImage(named: "Activity Grid 2-32.png")
+            showToolBarButtons()
         }
         
     }
+    @IBOutlet weak var toolBar: UIToolbar!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    @IBOutlet weak var eraseButton: UIBarButtonItem!
+    func pushShareButton() {
+        var selectedImageArray:[UIImage] = []
+        for var i = 0; i < imageManager.getCountOfSelectedItems(); i++ {
+            let index = imageManager.getSelectedItem(i)
+            let item:PHAsset = imageManager.getAsset(index) as PHAsset
+            let width:CGFloat = CGFloat(item.pixelWidth)
+            let height:CGFloat = CGFloat(item.pixelHeight)
+            PHImageManager.defaultManager().requestImageForAsset(item, targetSize: CGSizeMake(width, height), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
+                let img:UIImage = image
+                selectedImageArray.append(img)
+            })
+        }
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: selectedImageArray, applicationActivities: nil)
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
     var columnCount:Int {
         get{
             return collectionLayout.columnCount
@@ -61,6 +82,20 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
 
         }
     }
+    func showToolBarButtons() {
+        let item:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow426.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "pushShareButton")
+        item.width = 80
+        toolBar.items?.append(item)
+        let item2:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "arrow426.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "")
+        item2.width = 80
+        toolBar.items?.append(item2)
+        
+    }
+    func hideToolBarButtons() {
+        toolBar.items?.removeAtIndex(2)
+        toolBar.items?.removeAtIndex(1)
+    }
+    
     func clearAllSellect() {
         for var i = 0; i < imageManager.getCountOfSelectedItems(); i++ {
             /*
