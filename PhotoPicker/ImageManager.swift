@@ -28,7 +28,16 @@ class ImageManager {
     private var sectionNames:[String] = [String]()
     private var selectedItemArray:[Int] = []
     private var selectedItemArrayIndex:[NSIndexPath] = []
+    private var selectMode = false
 
+    var isSelectMode:Bool {
+        get{
+            return self.selectMode
+        }
+        set(flag){
+            self.selectMode = flag
+        }
+    }
     var sectionCount:Int {
         get{
             return sectionNames.count

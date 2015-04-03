@@ -21,14 +21,14 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     
     @IBOutlet weak var selectModeButton: UIBarButtonItem!
     @IBAction func pushuSelectModeChange(sender: AnyObject) {
-        if selectModeFlag == true {
+        if imageManager.isSelectMode  == true {
             self.navigationItem.title = "写真閲覧"
             selectModeButton.image = UIImage(named: "icon_box-checked.png")
-            selectModeFlag = false
+            imageManager.isSelectMode = false
             hideToolBarButtons()
             clearAllSellect()
         }else{
-            selectModeFlag = true
+            imageManager.isSelectMode = true
             self.navigationItem.title = "写真選択モード"
             selectModeButton.image = UIImage(named: "Activity Grid 2-32.png")
             showToolBarButtons()
@@ -180,7 +180,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if self.selectModeFlag == true {
+        if self.imageManager.isSelectMode == true {
             
             let cell:ThumbnailWaterFallCollectionViewCell = self.collectionView.cellForItemAtIndexPath(indexPath) as ThumbnailWaterFallCollectionViewCell
             //if imageManager.isSelected(indexPath.row) == false {
