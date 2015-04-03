@@ -10,5 +10,6 @@ import UIKit
 
 class CrossThumbnailCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
 }

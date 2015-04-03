@@ -54,6 +54,11 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         
         PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(500, 500), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
             cell.imageView.image = image
+            if self.imageManager.isSelected(indexPath) == false {
+                cell.checkButton.hidden = true
+            }else{
+                cell.checkButton.hidden = false
+            }
         })
         //let imgData:UIImage = imageManager.GetImageData(imageArray[indexPath.row], size: CGSizeMake(imgWidth,imgHeight) )
         //cell.imageView.image = imgData
@@ -89,5 +94,24 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         }
         return CGSizeMake(width, height)
     }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if self.imageManager.isSelectMode == true {
+            
+            let cell:CrossThumbnailCollectionViewCell = self.collectionView.cellForItemAtIndexPath(indexPath) as CrossThumbnailCollectionViewCell
+            //if imageManager.isSelected(indexPath.row) == false {
+            if imageManager.isSelected(indexPath) == false {
+                //cell.selectedStatus = false
+                cell.checkButton.hidden = false
+                imageManager.appendSelectedItemIndex(indexPath)
+            }else{
+                //cell.selectedStatus = true
+                cell.checkButton.hidden = true
+                imageManager.removeSelectedItemIndex(indexPath)
+            }
+        }else{
+            
+        }
+    }
+
     
 }

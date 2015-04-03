@@ -14,21 +14,24 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     private var imageManager:ImageManager!
     private var collectionLayout:CHTCollectionViewWaterfallLayout!
     private var cellSizes:[CGSize] = []
-    private var selectModeFlag:Bool = false
+    //private var selectModeFlag:Bool = false
     private var selectedItemArray:[Int] = []
     
+    @IBAction func pushShareButton(sender: AnyObject) {
+        
+    }
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var selectModeButton: UIBarButtonItem!
     @IBAction func pushuSelectModeChange(sender: AnyObject) {
-        if selectModeFlag == true {
+        if imageManager.isSelectMode == true {
             self.navigationItem.title = "写真閲覧"
             selectModeButton.image = UIImage(named: "icon_box-checked.png")
-            selectModeFlag = false
+            imageManager.isSelectMode = false
             hideToolBarButtons()
             clearAllSellect()
         }else{
-            selectModeFlag = true
+            imageManager.isSelectMode = true
             self.navigationItem.title = "写真選択モード"
             selectModeButton.image = UIImage(named: "Activity Grid 2-32.png")
             showToolBarButtons()
@@ -73,7 +76,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         let leftButton:UIBarButtonItem = UIBarButtonItem(image: iconHome, style: UIBarButtonItemStyle.Plain, target: self, action: "backButtonPushed")
         self.navigationItem.leftBarButtonItem = leftButton
 
-        let iconDraw:UIImage = UIImage(named: "Activity Feed 2-51ー.png")!
+        let iconDraw:UIImage = UIImage(named: "icon_menu.png")!
         let rightButton:UIBarButtonItem = UIBarButtonItem(image: iconDraw, style: UIBarButtonItemStyle.Plain, target: self, action: "drawerButtonPushed")
         self.navigationItem.rightBarButtonItem = rightButton
 
@@ -180,7 +183,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        if self.selectModeFlag == true {
+        if self.imageManager.isSelectMode == true {
             
             let cell:ThumbnailWaterFallCollectionViewCell = self.collectionView.cellForItemAtIndexPath(indexPath) as ThumbnailWaterFallCollectionViewCell
             //if imageManager.isSelected(indexPath.row) == false {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 enum ThumbnailSize {
     case Large
@@ -23,9 +24,29 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
     var imageManager:ImageManager!
     var thumbSize:ThumbnailSize = ThumbnailSize.Large
     var thumbnailCell:CrossBaweCollectionViewCell!
-    
+    //private var selectModeFlag:Bool = false
+   
     
     @IBOutlet weak var baseCollectionView: UICollectionView!
+    
+    @IBOutlet weak var tooBar: UIToolbar!
+    
+    @IBOutlet weak var selectModeButton: UIBarButtonItem!
+    
+    @IBAction func pushShareButton(sender: AnyObject) {
+        if imageManager.isSelectMode == true {
+            self.navigationItem.title = "写真閲覧"
+            selectModeButton.image = UIImage(named: "icon_box-checked.png")
+            imageManager.isSelectMode = false
+            hideToolBarButtons()
+            clearAllSellect()
+        }else{
+            imageManager.isSelectMode = true
+            self.navigationItem.title = "写真選択モード"
+            selectModeButton.image = UIImage(named: "Activity Grid 2-32.png")
+            showToolBarButtons()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +56,56 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
         let leftButton:UIBarButtonItem = UIBarButtonItem(image: iconHome, style: UIBarButtonItemStyle.Plain, target: self, action: "backButtonPushed")
         self.navigationItem.leftBarButtonItem = leftButton
         
-        let iconDraw:UIImage = UIImage(named: "Activity Feed 2-51ー.png")!
+        let iconDraw:UIImage = UIImage(named: "icon_menu.png")!
         let rightButton:UIBarButtonItem = UIBarButtonItem(image: iconDraw, style: UIBarButtonItemStyle.Plain, target: self, action: "drawerButtonPushed")
         self.navigationItem.rightBarButtonItem = rightButton
 
         imageManager = ImageManager.sharedInstance
         imageManager.sortByKeyOfAssetDate()
     }
-
+    func showToolBarButtons() {
+        let item:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "1428027456_common_share_action-128-3.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "pushShareButton")
+        item.width = 80
+        tooBar.items?.append(item)
+        let item2:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "icon_trash_alt.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "")
+        item2.width = 80
+        tooBar.items?.append(item2)
+        
+    }
+    func hideToolBarButtons() {
+        tooBar.items?.removeAtIndex(2)
+        tooBar.items?.removeAtIndex(1)
+    }
+    func clearAllSellect() {
+        for var i = 0; i < imageManager.getCountOfSelectedItems(); i++ {
+            /*
+            let index:NSIndexPath = NSIndexPath(forItem:imageManager.getSelectedItem(i), inSection: 0)
+            let cell:ThumbnailWaterFallCollectionViewCell = self.collectionView.cellForItemAtIndexPath(index) as ThumbnailWaterFallCollectionViewCell
+            
+            cell.checkButton.hidden = true
+            cell.selectedStatus = false
+            */
+        }
+        imageManager.removeAllSelectedItemIndex()
+        self.baseCollectionView.reloadData()
+    }
+    func pushShareButton() {
+        var selectedImageArray:[UIImage] = []
+        for var i = 0; i < imageManager.getCountOfSelectedItemsIndex(); i++ {
+            //let index = imageManager.getSelectedItem(i)
+            let index = imageManager.getSelectedItemIndex(i)
+            let item:PHAsset = imageManager.getAsset(index.section, index: index.row) as PHAsset
+            let width:CGFloat = CGFloat(item.pixelWidth)
+            let height:CGFloat = CGFloat(item.pixelHeight)
+            PHImageManager.defaultManager().requestImageForAsset(item, targetSize: CGSizeMake(width, height), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
+                let img:UIImage = image
+                selectedImageArray.append(img)
+            })
+        }
+        let activityViewController:UIActivityViewController = UIActivityViewController(activityItems: selectedImageArray, applicationActivities: nil)
+        self.presentViewController(activityViewController, animated: true, completion: nil)
+    }
+    
     func setThumbnailSize( size:ThumbnailSize ) {
         thumbSize = size
         self.thumbnailCell.setThumbnailSize(size)
