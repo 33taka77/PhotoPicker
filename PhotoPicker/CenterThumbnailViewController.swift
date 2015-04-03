@@ -73,7 +73,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         let leftButton:UIBarButtonItem = UIBarButtonItem(image: iconHome, style: UIBarButtonItemStyle.Plain, target: self, action: "backButtonPushed")
         self.navigationItem.leftBarButtonItem = leftButton
 
-        let iconDraw:UIImage = UIImage(named: "Activity Feed 2-51ー.png")!
+        let iconDraw:UIImage = UIImage(named: "icon_menu.png")!
         let rightButton:UIBarButtonItem = UIBarButtonItem(image: iconDraw, style: UIBarButtonItemStyle.Plain, target: self, action: "drawerButtonPushed")
         self.navigationItem.rightBarButtonItem = rightButton
 
@@ -82,6 +82,14 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
             self.collectionView.reloadData()
 
         }
+        if imageManager.isSelectMode == true {
+            self.navigationItem.title = "写真選択モード"
+            showToolBarButtons()
+        }else{
+            self.navigationItem.title = "写真閲覧"
+            clearAllSellect()
+        }
+
     }
     func showToolBarButtons() {
         let item:UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "1428027456_common_share_action-128-3.png"), style: UIBarButtonItemStyle.Plain, target: self, action: "pushShareButton")
