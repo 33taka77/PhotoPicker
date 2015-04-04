@@ -11,7 +11,10 @@ import Photos
 
 class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource {
     var imageArray:[PHAsset] = []
+
     var imageManager:ImageManager!
+    var flickrManager:FlickrManager!
+    
     var thumbSize:ThumbnailSize = ThumbnailSize.Large
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -20,6 +23,8 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         imageManager = ImageManager.sharedInstance
+        flickrManager = FlickrManager.sharedInstance
+        
         let layout:MyCollectionFlowLayout = MyCollectionFlowLayout()
         layout.scrollDirection = UICollectionViewScrollDirection.Horizontal
         //self.collectionView.setCollectionViewLayout(layout, animated: true)
@@ -36,22 +41,39 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         self.collectionView.reloadData()
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageArray.count
+        let application:UIApplication = UIApplication.sharedApplication()
+        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        if appdelegate.getSourceType() == SourceType.iOSDevice {
+            return imageArray.count
+        }else{
+            return flickrManager.countOfImages
+        }
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:CrossThumbnailCollectionViewCell = self.collectionView.dequeueReusableCellWithReuseIdentifier("CrossThumbnailCell", forIndexPath: indexPath) as CrossThumbnailCollectionViewCell
+        let application:UIApplication = UIApplication.sharedApplication()
+        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        if appdelegate.getSourceType() == SourceType.iOSDevice {
+            let asset:PHAsset = imageArray[indexPath.row]
+            PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(500, 500), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
+                cell.imageView.image = image
+                if self.imageManager.isSelected(indexPath) == false {
+                    cell.checkButton.hidden = true
+                }else{
+                    cell.checkButton.hidden = false
+                }
+                
+            })
+        }else{
+            flickrManager.getImage(indexPath, targetImage: &(cell.imageView!), size: SizeOfGetImage.Small)
+            if self.imageManager.isSelected(indexPath) == false {
+                cell.checkButton.hidden = true
+            }else{
+                cell.checkButton.hidden = false
+            }
+        }
+       /*
         let asset:PHAsset = imageArray[indexPath.row]
-        //let asset: PHAsset? = info["object"] as? PHAsset
-        //et imgWidth:CGFloat = info["pixelWidth"] as CGFloat
-        //let imgHeight:CGFloat = info["pixelHeight"] as CGFloat
-        
-        /*
-        let imgWidth:CGFloat = CGFloat(asset.pixelWidth)
-        let imgHeight = CGFloat(asset.pixelHeight)
-        let sizeX:CGFloat =  CGFloat(asset.pixelWidth/2)
-        let sizeY:CGFloat = CGFloat(asset.pixelHeight/2)
-        */
-        
         PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(500, 500), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
             cell.imageView.image = image
             if self.imageManager.isSelected(indexPath) == false {
@@ -61,6 +83,7 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
             }
 
         })
+        */
         //let imgData:UIImage = imageManager.GetImageData(imageArray[indexPath.row], size: CGSizeMake(imgWidth,imgHeight) )
         //cell.imageView.image = imgData
         return cell
@@ -70,10 +93,19 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         if index >= imageArray.count {
             println("index error")
         }
-        
-        let info:PHAsset = imageArray[indexPath.item] as PHAsset
-        let imgWidth:CGFloat = CGFloat(info.pixelWidth)
-        let imgHeight:CGFloat = CGFloat(info.pixelHeight)
+        let application:UIApplication = UIApplication.sharedApplication()
+        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        var imgWidth:CGFloat
+        var imgHeight:CGFloat
+        if appdelegate.getSourceType() == SourceType.iOSDevice {
+            let info:PHAsset = imageArray[indexPath.item] as PHAsset
+            imgWidth = CGFloat(info.pixelWidth)
+            imgHeight = CGFloat(info.pixelHeight)
+        }else{
+            let size:CGSize = flickrManager.getSizeOfImage(indexPath)
+            imgWidth = size.width
+            imgHeight = size.height
+        }
         //let width:CGFloat = imgWidth/imgHeight * constHeightOfSlideCell
         
         var width:CGFloat = constHeightOfSlideCellMiddle

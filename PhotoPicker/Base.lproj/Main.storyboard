@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -187,13 +187,29 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qLK-RM-Obk">
+                                <rect key="frame" x="201" y="498" width="199" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="28" id="FmL-6Y-3wZ"/>
+                                    <constraint firstAttribute="width" constant="199" id="oq0-F6-b3r"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="iOS Device"/>
+                                    <segment title="Flickr"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectedSource:" destination="8vM-Y2-gMA" eventType="valueChanged" id="vil-bq-XEB"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.29519807450000002" green="0.25115269959999997" blue="0.073489997700000004" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="qLK-RM-Obk" secondAttribute="centerX" id="7IZ-Xd-jFt"/>
                             <constraint firstItem="221-4e-qXS" firstAttribute="top" secondItem="ASR-I3-8CZ" secondAttribute="topMargin" id="ATi-MK-UfW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Fy9-Sg-EeX" secondAttribute="trailing" constant="-16" id="JX7-yL-z09"/>
                             <constraint firstItem="Fy9-Sg-EeX" firstAttribute="leading" secondItem="ASR-I3-8CZ" secondAttribute="leadingMargin" constant="-16" id="MJN-mu-ErO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="221-4e-qXS" secondAttribute="trailing" constant="-16" id="MUt-IZ-UZF"/>
+                            <constraint firstItem="Fy9-Sg-EeX" firstAttribute="top" secondItem="qLK-RM-Obk" secondAttribute="bottom" constant="30" id="Qhc-qB-XAJ"/>
                             <constraint firstItem="221-4e-qXS" firstAttribute="leading" secondItem="ASR-I3-8CZ" secondAttribute="leadingMargin" constant="-16" id="Wwy-Xi-kfK"/>
                             <constraint firstItem="gfA-s1-5Dt" firstAttribute="top" secondItem="221-4e-qXS" secondAttribute="bottom" id="Zmr-bz-hM8"/>
                             <constraint firstItem="gfA-s1-5Dt" firstAttribute="top" secondItem="Fy9-Sg-EeX" secondAttribute="bottom" id="vml-m6-EQ8"/>
@@ -202,6 +218,7 @@
                     <connections>
                         <outlet property="collectionView" destination="221-4e-qXS" id="MSj-cz-XUh"/>
                         <outlet property="selectModeButton" destination="Wod-Z8-lUj" id="Td2-Wf-L6v"/>
+                        <outlet property="sourceSelector" destination="qLK-RM-Obk" id="1pO-uZ-no0"/>
                         <outlet property="toolBar" destination="Fy9-Sg-EeX" id="mdG-pH-Ixj"/>
                     </connections>
                 </viewController>
@@ -346,11 +363,30 @@
                                     <outlet property="delegate" destination="Hx3-BJ-toK" id="Roc-6k-BDP"/>
                                 </connections>
                             </collectionView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="L9a-U7-55T">
+                                <rect key="frame" x="201" y="498" width="199" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="199" id="475-Mw-WdI"/>
+                                    <constraint firstAttribute="height" constant="28" id="Adj-F0-DBE"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="199" id="Ryc-Sm-g4z"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="nLY-8k-mga"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="iOS Device"/>
+                                    <segment title="Flickr"/>
+                                </segments>
+                                <connections>
+                                    <action selector="selectedSource:" destination="8vM-Y2-gMA" eventType="valueChanged" id="Xns-Dq-XgQ"/>
+                                    <action selector="selectedSource:" destination="Hx3-BJ-toK" eventType="valueChanged" id="kYJ-4b-KPR"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CkL-1x-CVk" firstAttribute="top" secondItem="mzg-Hp-bvn" secondAttribute="bottom" id="3xy-1a-zdA"/>
+                            <constraint firstAttribute="centerX" secondItem="L9a-U7-55T" secondAttribute="centerX" id="5hz-XI-Abh"/>
                             <constraint firstItem="CkL-1x-CVk" firstAttribute="top" secondItem="mzg-Hp-bvn" secondAttribute="bottom" id="AWg-4B-Ht2"/>
+                            <constraint firstItem="mzg-Hp-bvn" firstAttribute="top" secondItem="L9a-U7-55T" secondAttribute="bottom" constant="30" id="BoE-5m-oEn"/>
                             <constraint firstItem="mzg-Hp-bvn" firstAttribute="top" secondItem="DHK-JA-xgY" secondAttribute="bottom" id="RHC-nv-mPj"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mzg-Hp-bvn" secondAttribute="trailing" constant="-16" id="Xd4-Q3-ypP"/>
                             <constraint firstItem="mzg-Hp-bvn" firstAttribute="leading" secondItem="6k0-2a-leU" secondAttribute="leadingMargin" constant="-16" id="YT2-8f-qAW"/>
@@ -364,6 +400,7 @@
                     <connections>
                         <outlet property="baseCollectionView" destination="DHK-JA-xgY" id="YCZ-8d-0Ff"/>
                         <outlet property="selectModeButton" destination="hpu-E8-gEz" id="rdW-s4-lqP"/>
+                        <outlet property="sourceSELECTOR" destination="L9a-U7-55T" id="ZuD-aJ-1Cd"/>
                         <outlet property="tooBar" destination="mzg-Hp-bvn" id="0Pd-CC-XEl"/>
                     </connections>
                 </viewController>

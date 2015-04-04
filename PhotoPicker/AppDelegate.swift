@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
     var dynamicsDrawerViewController:MSDynamicsDrawerViewController!
     var centerViewControllerBk:CenterThumbnailViewController!
     var centerControllerDictionary:[CenterViewControllerType:AnyObject] = [:]
+    var sourceType:SourceType = SourceType.iOSDevice
     
     func setupDrawer(viewController:UIViewController) {
         self.dynamicsDrawerViewController = viewController as MSDynamicsDrawerViewController
@@ -77,6 +78,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
         
     }
     
+    func setSourceType(type:SourceType) {
+        sourceType = type
+    }
+    func getSourceType()->SourceType {
+        return sourceType
+    }
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         return true

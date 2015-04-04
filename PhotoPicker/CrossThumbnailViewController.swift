@@ -22,9 +22,29 @@ let constHeightOfSlideCellSmall:CGFloat = 120.0
 class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate {
 
     var imageManager:ImageManager!
+    var flickrManager:FlickrManager!
+    
     var thumbSize:ThumbnailSize = ThumbnailSize.Large
     var thumbnailCell:CrossBaweCollectionViewCell!
     
+    @IBOutlet weak var sourceSELECTOR: UISegmentedControl!
+    @IBAction func selectedSource(sender: AnyObject) {
+        let segment:UISegmentedControl! = sender as UISegmentedControl
+        let application:UIApplication = UIApplication.sharedApplication()
+        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        
+        switch segment.selectedSegmentIndex {
+        case 0:
+            appdelegate.setSourceType(SourceType.iOSDevice)
+            selectModeButton.enabled = true
+        case 1:
+            appdelegate.setSourceType(SourceType.Flickr)
+            selectModeButton.enabled = false
+        default:
+            println("Unknown segment")
+        }
+        baseCollectionView.reloadData()
+    }
     @IBOutlet weak var tooBar: UIToolbar!
     @IBOutlet weak var selectModeButton: UIBarButtonItem!
     @IBAction func pushShareButton(sender: AnyObject) {
@@ -57,13 +77,25 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
         self.navigationItem.rightBarButtonItem = rightButton
 
         imageManager = ImageManager.sharedInstance
-        imageManager.sortByKeyOfAssetDate()
+        flickrManager = FlickrManager.sharedInstance
+        let application:UIApplication = UIApplication.sharedApplication()
+        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        //if appdelegate.getSourceType() == SourceType.iOSDevice {
+            imageManager.sortByKeyOfAssetDate()
+        //}
         if imageManager.isSelectMode == true {
             self.navigationItem.title = "写真選択モード"
             showToolBarButtons()
         }else{
             self.navigationItem.title = "写真閲覧"
             clearAllSellect()
+        }
+        if appdelegate.getSourceType() == SourceType.iOSDevice {
+            sourceSELECTOR.selectedSegmentIndex = 0
+            selectModeButton.enabled = true
+        }else{
+            sourceSELECTOR.selectedSegmentIndex = 1
+            selectModeButton.enabled = false
         }
     }
     func showToolBarButtons() {
@@ -130,7 +162,14 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
     
 
     func numberOfSectionsInCollectionView(collectionView:UICollectionView)->NSInteger{
-        let count = imageManager.sectionCount
+        let application:UIApplication = UIApplication.sharedApplication()
+        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        var count:Int
+        if appdelegate.getSourceType() == SourceType.iOSDevice {
+            count = imageManager.sectionCount
+        }else{
+            count = 1
+        }
         return count
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -138,10 +177,18 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell:CrossBaweCollectionViewCell = self.baseCollectionView.dequeueReusableCellWithReuseIdentifier("BaseCollectionViewCell", forIndexPath: indexPath) as CrossBaweCollectionViewCell
-        cell.imageArray = imageManager.getImageArray(imageManager.getSectionName(indexPath.section))
-        cell.setup()
-        cell.setThumbnailSize(thumbSize)
-        thumbnailCell = cell
+        let application:UIApplication = UIApplication.sharedApplication()
+        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        if appdelegate.getSourceType() == SourceType.iOSDevice {
+            cell.imageArray = imageManager.getImageArray(imageManager.getSectionName(indexPath.section))
+            cell.setup()
+            cell.setThumbnailSize(thumbSize)
+            thumbnailCell = cell
+        }else{
+            cell.setup()
+            cell.setThumbnailSize(thumbSize)
+            thumbnailCell = cell
+        }
         return cell
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -167,7 +214,13 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
         if (kind == UICollectionElementKindSectionHeader) {
             header = baseCollectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CrossBaseHeaderIdentify", forIndexPath: indexPath)
                 as? CrossBaesHeaderCollectionReusableView
-            header?.sectionTitle.text = imageManager.getSectionName(indexPath.section)
+            let application:UIApplication = UIApplication.sharedApplication()
+            let appdelegate:AppDelegate = application.delegate as AppDelegate
+            if appdelegate.getSourceType() == SourceType.iOSDevice {
+                header?.sectionTitle.text = imageManager.getSectionName(indexPath.section)
+            }else{
+                header?.sectionTitle.text = "flickr"
+            }
         }
         return header!
     }

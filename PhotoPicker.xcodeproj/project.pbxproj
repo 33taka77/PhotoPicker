@@ -50,6 +50,7 @@
 		F952B6071AC980DC00DE515F /* Activity Feed 2-51ー.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B6051AC980DC00DE515F /* Activity Feed 2-51ー.png */; };
 		F952B6081AC980DC00DE515F /* Home-51.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B6061AC980DC00DE515F /* Home-51.png */; };
 		F952B60B1ACAA58600DE515F /* MyCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F952B60A1ACAA58600DE515F /* MyCollectionFlowLayout.swift */; };
+		F9F7623F1ACF947E0013BA8E /* FlickrMngr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F7623E1ACF947E0013BA8E /* FlickrMngr.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		F952B6051AC980DC00DE515F /* Activity Feed 2-51ー.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Activity Feed 2-51ー.png"; sourceTree = "<group>"; };
 		F952B6061AC980DC00DE515F /* Home-51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home-51.png"; sourceTree = "<group>"; };
 		F952B60A1ACAA58600DE515F /* MyCollectionFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionFlowLayout.swift; sourceTree = "<group>"; };
+		F9F7623E1ACF947E0013BA8E /* FlickrMngr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrMngr.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +202,7 @@
 				8194A31A1ACA2DB0007B2499 /* ViewController */,
 				F952B6021AC972AA00DE515F /* icon */,
 				8194A30C1AC92437007B2499 /* ImageManager.swift */,
+				F9F7623E1ACF947E0013BA8E /* FlickrMngr.swift */,
 				F937B5911AC8307A0001FB6F /* waterFall.swift */,
 				F937B5681AC82BFD0001FB6F /* AppDelegate.swift */,
 				F937B56D1AC82BFD0001FB6F /* ViewController.swift */,
@@ -437,6 +440,7 @@
 				F937B5691AC82BFD0001FB6F /* AppDelegate.swift in Sources */,
 				8194A3051AC8DF9A007B2499 /* CenterThumbnailViewController.swift in Sources */,
 				F937B5921AC8307A0001FB6F /* waterFall.swift in Sources */,
+				F9F7623F1ACF947E0013BA8E /* FlickrMngr.swift in Sources */,
 				8194A3091AC90D95007B2499 /* DynamicDrawerViewController.swift in Sources */,
 				F952B60B1ACAA58600DE515F /* MyCollectionFlowLayout.swift in Sources */,
 				8194A3131ACA22D4007B2499 /* CrossThumbnailViewController.swift in Sources */,
