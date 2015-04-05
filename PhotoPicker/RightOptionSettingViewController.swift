@@ -22,8 +22,12 @@ class RightOptionSettingViewController: UIViewController {
         switch segment.selectedSegmentIndex {
         case 0:
             appdelegate.setCenterViewController(CenterViewControllerType.waterFallThumbnail)
+            selectorForThumbSize.enabled = false
+            steper.enabled = true
         case 1:
             appdelegate.setCenterViewController(CenterViewControllerType.clossCollectionThumbnai)
+            selectorForThumbSize.enabled = true
+            steper.enabled = false
         default:
             println("Unknown segment")
         }

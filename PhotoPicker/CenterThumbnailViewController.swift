@@ -300,7 +300,22 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
                 imageManager.removeSelectedItemIndex(indexPath)
             }
         }else{
-            
+            /*
+            let viewController:SingleViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SingleViewController") as SingleViewController
+            let application:UIApplication = UIApplication.sharedApplication()
+            let appdelegate:AppDelegate = application.delegate as AppDelegate
+            if appdelegate.getSourceType() == SourceType.iOSDevice {
+                let index:Int = indexPath.row
+                let section:Int = indexPath.section
+                viewController.currentIndex = indexPath
+            }else{
+                viewController.currentIndex = indexPath
+            }
+            self.navigationController?.pushViewController(viewController, animated: true)
+
+            //singleViewController.modalTransitionStyle = UIModalTransitionStyle.CrossDissolve
+            //self.presentViewController(singleViewController, animated: true, completion: nil)
+            */
         }
     }
     

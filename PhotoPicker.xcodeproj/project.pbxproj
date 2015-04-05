@@ -50,6 +50,8 @@
 		F952B6071AC980DC00DE515F /* Activity Feed 2-51ー.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B6051AC980DC00DE515F /* Activity Feed 2-51ー.png */; };
 		F952B6081AC980DC00DE515F /* Home-51.png in Resources */ = {isa = PBXBuildFile; fileRef = F952B6061AC980DC00DE515F /* Home-51.png */; };
 		F952B60B1ACAA58600DE515F /* MyCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F952B60A1ACAA58600DE515F /* MyCollectionFlowLayout.swift */; };
+		F9656A481AD03CD800484773 /* SingleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9656A471AD03CD800484773 /* SingleViewController.swift */; };
+		F99C23151AD0EE490003DC74 /* SingleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F99C23141AD0EE490003DC74 /* SingleCollectionViewCell.swift */; };
 		F9F7623F1ACF947E0013BA8E /* FlickrMngr.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F7623E1ACF947E0013BA8E /* FlickrMngr.swift */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +116,8 @@
 		F952B6051AC980DC00DE515F /* Activity Feed 2-51ー.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Activity Feed 2-51ー.png"; sourceTree = "<group>"; };
 		F952B6061AC980DC00DE515F /* Home-51.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home-51.png"; sourceTree = "<group>"; };
 		F952B60A1ACAA58600DE515F /* MyCollectionFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionFlowLayout.swift; sourceTree = "<group>"; };
+		F9656A471AD03CD800484773 /* SingleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleViewController.swift; sourceTree = "<group>"; };
+		F99C23141AD0EE490003DC74 /* SingleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleCollectionViewCell.swift; sourceTree = "<group>"; };
 		F9F7623E1ACF947E0013BA8E /* FlickrMngr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrMngr.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +160,7 @@
 		8194A31A1ACA2DB0007B2499 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				F9656A471AD03CD800484773 /* SingleViewController.swift */,
 				8194A3061AC8E129007B2499 /* RightOptionSettingViewController.swift */,
 				8194A3081AC90D95007B2499 /* DynamicDrawerViewController.swift */,
 				8194A3121ACA22D4007B2499 /* CrossThumbnailViewController.swift */,
@@ -170,6 +175,7 @@
 				8194A30A1AC9221C007B2499 /* ThumbnailWaterFallCollectionViewCell.swift */,
 				8194A3181ACA2885007B2499 /* CrossThumbnailCollectionViewCell.swift */,
 				8194A3141ACA23EB007B2499 /* CrossBaweCollectionViewCell.swift */,
+				F99C23141AD0EE490003DC74 /* SingleCollectionViewCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -438,6 +444,8 @@
 				8194A3071AC8E129007B2499 /* RightOptionSettingViewController.swift in Sources */,
 				8194A30D1AC92437007B2499 /* ImageManager.swift in Sources */,
 				F937B5691AC82BFD0001FB6F /* AppDelegate.swift in Sources */,
+				F99C23151AD0EE490003DC74 /* SingleCollectionViewCell.swift in Sources */,
+				F9656A481AD03CD800484773 /* SingleViewController.swift in Sources */,
 				8194A3051AC8DF9A007B2499 /* CenterThumbnailViewController.swift in Sources */,
 				F937B5921AC8307A0001FB6F /* waterFall.swift in Sources */,
 				F9F7623F1ACF947E0013BA8E /* FlickrMngr.swift in Sources */,
