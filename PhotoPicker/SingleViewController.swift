@@ -80,6 +80,8 @@ class SingleViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         }else{
             flickrManager.getImage(indexPath, targetImage: &(cell.imageView!), size: SizeOfGetImage.Middle)
         }
+        let offset:CGPoint = CGPointMake(CGFloat(collectionView.bounds.width) * CGFloat(currentIndex.row),0)
+        self.collectionView.setContentOffset(offset,animated:false)
         return cell
     }
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -88,6 +90,9 @@ class SingleViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         return CGSizeMake(width, height)
     }
 
+    func scrollViewDidEndDecelerating( scrollview:UIScrollView ) {
+        println("Scroll: offset")
+    }
     /*
     // MARK: - Navigation
 
