@@ -43,18 +43,18 @@ class FlickrManager {
         ]
         let requestSuccess = {
             (operation:AFHTTPRequestOperation!, responseObject:AnyObject?) -> Void in
-            let dict:NSDictionary = responseObject as NSDictionary
+            let dict:NSDictionary = responseObject as! NSDictionary
             let key: NSString = NSString(string: "photos")
             let imgs:NSDictionary? = dict.objectForKey(key) as? NSDictionary
             let subKey:NSString = NSString(string: "photo")
-            let array:[NSDictionary] = imgs!.objectForKey(subKey) as [NSDictionary]
+            let array:[NSDictionary] = imgs!.objectForKey(subKey) as! [NSDictionary]
             for info in array {
                 var dict:Dictionary<String,Any> = [:]
                 dict["object"] = info
                 let photoId:String? = info["id"] as? String
                 func getSize( size:CGSize ){
                     dict["size"] = size
-                    imageArray.append(dict)
+                    self.imageArray.append(dict)
                     update()
                 }
                 self.fetchImageSize(photoId!, returnSize: getSize )
@@ -81,18 +81,18 @@ class FlickrManager {
         
         let requestSuccess = {
             (operation:AFHTTPRequestOperation!, responseObject:AnyObject?) -> Void in
-            let dict:NSDictionary = responseObject as NSDictionary
+            let dict:NSDictionary = responseObject as! NSDictionary
             let key: NSString = NSString(string: "sizes")
             let sizes:NSDictionary? = dict.objectForKey(key) as? NSDictionary
             let subKey:NSString = NSString(string: "size")
-            let array:[NSDictionary] = sizes!.objectForKey(subKey) as [NSDictionary]
+            let array:[NSDictionary] = sizes!.objectForKey(subKey) as! [NSDictionary]
             var width:CGFloat = 0
             var height:CGFloat = 0
 
             for element:NSDictionary in array {
-                if element["label"] as String == "Medium" {
-                    var widthSrt: NSString = element["width"] as NSString
-                    var heightStr: NSString = element["height"] as NSString
+                if element["label"] as! String == "Medium" {
+                    var widthSrt: NSString = element["width"] as! NSString
+                    var heightStr: NSString = element["height"] as! NSString
                     println("image size: width = \(width) height = \(height)")
                     width = CGFloat(widthSrt.floatValue)
                     height = CGFloat(heightStr.floatValue)
@@ -112,20 +112,20 @@ class FlickrManager {
     }
     func getSizeOfImage(index:NSIndexPath)->CGSize {
         let item:[String:Any] = imageArray[index.row]
-        let size:CGSize = item["size"] as CGSize
+        let size:CGSize = item["size"] as! CGSize
         return size
     }
     func getImage(index:NSIndexPath, inout targetImage:UIImageView, size:SizeOfGetImage) {
         let info = self.imageArray[index.row] as Dictionary
-        let item:NSDictionary = info["object"] as NSDictionary
+        let item:NSDictionary = info["object"] as! NSDictionary
         var photoUrlString:String
         switch size {
         case SizeOfGetImage.Large:
-            photoUrlString = item["url_o"] as String
+            photoUrlString = item["url_o"] as! String
         case SizeOfGetImage.Middle:
-            photoUrlString = item["url_l"] as String
+            photoUrlString = item["url_l"] as! String
         case SizeOfGetImage.Small:
-            photoUrlString = item["url_m"] as String
+            photoUrlString = item["url_m"] as! String
         default:
             println("error")
         }

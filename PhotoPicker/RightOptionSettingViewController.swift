@@ -15,9 +15,9 @@ class RightOptionSettingViewController: UIViewController {
     
     @IBOutlet weak var dispModeSegment: UISegmentedControl!
     @IBAction func changeDispMode(sender: AnyObject) {
-        let segment:UISegmentedControl! = sender as UISegmentedControl
+        let segment:UISegmentedControl! = sender as! UISegmentedControl
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
 
         switch segment.selectedSegmentIndex {
         case 0:
@@ -36,9 +36,9 @@ class RightOptionSettingViewController: UIViewController {
     @IBOutlet weak var selectorForThumbSize: UISegmentedControl!
     
     @IBAction func selectedSize(sender: AnyObject) {
-        let segment:UISegmentedControl! = sender as UISegmentedControl
+        let segment:UISegmentedControl! = sender as! UISegmentedControl
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         
         switch segment.selectedSegmentIndex {
         case 0:
@@ -56,7 +56,7 @@ class RightOptionSettingViewController: UIViewController {
         let c:Double = self.steper.value
         columnCont.text = convertDoubleToString(c)
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         appdelegate.changeWaterFallColumnCount(Int(c))
     }
     

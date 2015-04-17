@@ -42,7 +42,7 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         if appdelegate.getSourceType() == SourceType.iOSDevice {
             return imageArray.count
         }else{
@@ -50,9 +50,9 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
         }
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell:CrossThumbnailCollectionViewCell = self.collectionView.dequeueReusableCellWithReuseIdentifier("CrossThumbnailCell", forIndexPath: indexPath) as CrossThumbnailCollectionViewCell
+        let cell:CrossThumbnailCollectionViewCell = self.collectionView.dequeueReusableCellWithReuseIdentifier("CrossThumbnailCell", forIndexPath: indexPath) as! CrossThumbnailCollectionViewCell
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         if appdelegate.getSourceType() == SourceType.iOSDevice {
             let asset:PHAsset = imageArray[indexPath.row]
             PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(500, 500), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
@@ -94,7 +94,7 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
             println("index error")
         }
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         var imgWidth:CGFloat
         var imgHeight:CGFloat
         if appdelegate.getSourceType() == SourceType.iOSDevice {
@@ -130,7 +130,7 @@ class CrossBaweCollectionViewCell: UICollectionViewCell,UICollectionViewDelegate
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if self.imageManager.isSelectMode == true {
             
-            let cell:CrossThumbnailCollectionViewCell = self.collectionView.cellForItemAtIndexPath(indexPath) as CrossThumbnailCollectionViewCell
+            let cell:CrossThumbnailCollectionViewCell = self.collectionView.cellForItemAtIndexPath(indexPath) as! CrossThumbnailCollectionViewCell
             //if imageManager.isSelected(indexPath.row) == false {
             if imageManager.isSelected(indexPath) == false {
                 //cell.selectedStatus = false

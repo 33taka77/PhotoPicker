@@ -11,7 +11,7 @@ import UIKit
 class MyCollectionFlowLayout: UICollectionViewFlowLayout {
    
     override func layoutAttributesForElementsInRect(rect: CGRect) -> [AnyObject]? {
-        let attributes:[UICollectionViewLayoutAttributes] = super.layoutAttributesForElementsInRect(rect)! as [UICollectionViewLayoutAttributes]
+        let attributes:[UICollectionViewLayoutAttributes] = super.layoutAttributesForElementsInRect(rect)! as! [UICollectionViewLayoutAttributes]
         for attribute in attributes {
             var newRect:CGRect = attribute.bounds
             newRect.size.width += 5
@@ -27,7 +27,7 @@ class MyCollectionFlowLayout: UICollectionViewFlowLayout {
         let horizontalOffset:CGFloat = proposedContentOffset.x + (self.collectionView?.bounds.size.width)! / 2.0
         let targetRect = CGRectMake(proposedContentOffset.x, 0, (self.collectionView?.bounds.size.width)!, (self.collectionView?.bounds.size.height)!)
         let array:[AnyObject] = super.layoutAttributesForElementsInRect(targetRect)!
-        for layoutAttributes:UICollectionViewLayoutAttributes in array as [UICollectionViewLayoutAttributes] {
+        for layoutAttributes:UICollectionViewLayoutAttributes in array as! [UICollectionViewLayoutAttributes] {
             let itemOffset:CGFloat = layoutAttributes.frame.origin.x
             if abs(itemOffset - horizontalOffset) < abs(offsetAdjustment) {
                 offsetAdjustment = itemOffset - horizontalOffset

@@ -26,12 +26,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
     var sourceType:SourceType = SourceType.iOSDevice
     
     func setupDrawer(viewController:UIViewController) {
-        self.dynamicsDrawerViewController = viewController as MSDynamicsDrawerViewController
+        self.dynamicsDrawerViewController = viewController as! MSDynamicsDrawerViewController
         self.dynamicsDrawerViewController.delegate = self
         let styleArray:[AnyObject] = [MSDynamicsDrawerScaleStyler.styler(),MSDynamicsDrawerFadeStyler.styler(),MSDynamicsDrawerShadowStyler.styler()]
         self.dynamicsDrawerViewController.addStylersFromArray(styleArray, forDirection: MSDynamicsDrawerDirection.Right)
         //let centerViewController:CenterThumbnailViewController = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("CenterThumbnailViewController") as CenterThumbnailViewController
-        let rightViewController:RightOptionSettingViewController = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("RightOptionSettingViewController") as RightOptionSettingViewController
+        let rightViewController:RightOptionSettingViewController = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("RightOptionSettingViewController") as! RightOptionSettingViewController
         self.dynamicsDrawerViewController.setDrawerViewController(rightViewController, forDirection: MSDynamicsDrawerDirection.Right)
         setCenterViewController(CenterViewControllerType.waterFallThumbnail)
         /*
@@ -47,12 +47,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
     }
     
     func changeCrossThumbSize( size:ThumbnailSize ) {
-        let centerViewController:CrossThumbnailViewController = centerControllerDictionary[CenterViewControllerType.clossCollectionThumbnai] as CrossThumbnailViewController
+        let centerViewController:CrossThumbnailViewController = centerControllerDictionary[CenterViewControllerType.clossCollectionThumbnai] as! CrossThumbnailViewController
         centerViewController.setThumbnailSize(size)
     }
     
     func changeWaterFallColumnCount( count:Int ) {
-        let centerViewController:CenterThumbnailViewController = centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] as CenterThumbnailViewController
+        let centerViewController:CenterThumbnailViewController = centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] as! CenterThumbnailViewController
         centerViewController.columnCount = count
     }
     
@@ -62,14 +62,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
         switch type {
         case CenterViewControllerType.waterFallThumbnail:
             if centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] == nil {
-                centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("CenterThumbnailViewController") as CenterThumbnailViewController
+                centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("CenterThumbnailViewController") as! CenterThumbnailViewController
             }
-            centerViewController = centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] as UIViewController
+            centerViewController = centerControllerDictionary[CenterViewControllerType.waterFallThumbnail] as! UIViewController
         case CenterViewControllerType.clossCollectionThumbnai:
             if centerControllerDictionary[CenterViewControllerType.clossCollectionThumbnai] == nil {
-                centerControllerDictionary[CenterViewControllerType.clossCollectionThumbnai] = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("CrossThumbnailView") as CrossThumbnailViewController
+                centerControllerDictionary[CenterViewControllerType.clossCollectionThumbnai] = self.window?.rootViewController?.storyboard?.instantiateViewControllerWithIdentifier("CrossThumbnailView") as! CrossThumbnailViewController
             }
-            centerViewController = centerControllerDictionary[CenterViewControllerType.clossCollectionThumbnai] as UIViewController
+            centerViewController = centerControllerDictionary[CenterViewControllerType.clossCollectionThumbnai] as! UIViewController
         default:
             println("Unknown Type")
         }
@@ -118,7 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MSDynamicsDrawerViewContro
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "net.takashi.aizawa.PhotoPicker" in the application's documents Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        return urls[urls.count-1] as NSURL
+        return urls[urls.count-1] as! NSURL
     }()
 
     lazy var managedObjectModel: NSManagedObjectModel = {

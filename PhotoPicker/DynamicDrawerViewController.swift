@@ -15,7 +15,7 @@ class DynamicDrawerViewController: MSDynamicsDrawerViewController {
 
         // Do any additional setup after loading the view.
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         appdelegate.setupDrawer(self)
     }
 

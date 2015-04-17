@@ -46,7 +46,7 @@ class SingleViewController: UIViewController,UICollectionViewDelegateFlowLayout,
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         
         var count:Int
         if appdelegate.getSourceType() == SourceType.iOSDevice {
@@ -61,15 +61,15 @@ class SingleViewController: UIViewController,UICollectionViewDelegateFlowLayout,
         return count
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell:SingleCollectionViewCell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SIngleViewCell", forIndexPath: indexPath) as SingleCollectionViewCell
+        let cell:SingleCollectionViewCell = self.collectionView.dequeueReusableCellWithReuseIdentifier("SIngleViewCell", forIndexPath: indexPath) as! SingleCollectionViewCell
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         if appdelegate.getSourceType() == SourceType.iOSDevice {
             var asset:PHAsset
             if imageManager.isSelectMode == true {
-                asset = imageManager.getAsset(indexPath.section, index: indexPath.row) as PHAsset
+                asset = imageManager.getAsset(indexPath.section, index: indexPath.row) as! PHAsset
             }else{
-                asset = imageManager.getAsset(indexPath.row) as PHAsset
+                asset = imageManager.getAsset(indexPath.row) as! PHAsset
             }
             let width:CGFloat = CGFloat(asset.pixelWidth)
             let height:CGFloat = CGFloat(asset.pixelHeight)

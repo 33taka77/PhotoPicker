@@ -54,11 +54,11 @@ class ImageManager {
     
     func getImageArray( sectionName:String )->[PHAsset] {
         let i = find(sectionNames,sectionName)
-        let array :[PHAsset] = images[i!] as [PHAsset]
+        let array :[PHAsset] = images[i!] as! [PHAsset]
         return array
     }
     func getImageCount( section:Int )->Int {
-        var items:[PHAsset] = images[section] as [PHAsset]
+        var items:[PHAsset] = images[section] as! [PHAsset]
         return items.count
     }
     
@@ -77,7 +77,7 @@ class ImageManager {
         return asset
     }
     func getAsset(section:Int, index:Int)->AnyObject {
-        let array:[PHAsset] = images[section] as [PHAsset]
+        let array:[PHAsset] = images[section] as! [PHAsset]
         return array[index]
     }
     func isSelected(index:Int)->Bool {
@@ -130,10 +130,10 @@ class ImageManager {
     func collectAssets(update: ()->Void) {
         let momentsList:PHFetchResult! = PHCollectionList.fetchCollectionListsWithType(PHCollectionListType.MomentList, subtype: PHCollectionListSubtype.Any, options: nil)
         momentsList.enumerateObjectsUsingBlock { (obj, Index, flag) -> Void in
-            let collectionList: PHCollectionList = obj as PHCollectionList
+            let collectionList: PHCollectionList = obj as! PHCollectionList
             let moments:PHFetchResult! = PHAssetCollection.fetchMomentsInMomentList(collectionList, options: nil)
             moments.enumerateObjectsUsingBlock { (object, index, flag) -> Void in
-                let assets:PHFetchResult! = PHAsset.fetchAssetsInAssetCollection(object as PHAssetCollection, options: nil)
+                let assets:PHFetchResult! = PHAsset.fetchAssetsInAssetCollection(object as! PHAssetCollection, options: nil)
                 assets.enumerateObjectsUsingBlock({ (asset, indexOfAsset, flag) -> Void in
                     let tempObj:PHAsset? = asset as? PHAsset
                     if (tempObj != nil){
@@ -192,7 +192,7 @@ class ImageManager {
     
     func GetImage( section: Int, row: Int )->UIImage {
         var items = images[section]
-        let item: PHAsset = items[row] as PHAsset
+        let item: PHAsset = items[row] as! PHAsset
         let imgWidth:CGFloat = CGFloat(item.pixelWidth)
         let imgHeight:CGFloat = CGFloat(item.pixelHeight)
         let size:CGSize = CGSizeMake( imgWidth/2, imgHeight/2 )

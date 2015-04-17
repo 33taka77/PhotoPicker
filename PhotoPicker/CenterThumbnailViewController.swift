@@ -42,9 +42,9 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     }
     
     @IBAction func selectedSource(sender: AnyObject) {
-        let segment:UISegmentedControl! = sender as UISegmentedControl
+        let segment:UISegmentedControl! = sender as! UISegmentedControl
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         
         switch segment.selectedSegmentIndex {
         case 0:
@@ -70,7 +70,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         for var i = 0; i < imageManager.getCountOfSelectedItemsIndex(); i++ {
             //let index = imageManager.getSelectedItem(i)
             let index = imageManager.getSelectedItemIndex(i)
-            let item:PHAsset = imageManager.getAsset(index.row) as PHAsset
+            let item:PHAsset = imageManager.getAsset(index.row) as! PHAsset
             let width:CGFloat = CGFloat(item.pixelWidth)
             let height:CGFloat = CGFloat(item.pixelHeight)
             PHImageManager.defaultManager().requestImageForAsset(item, targetSize: CGSizeMake(width, height), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
@@ -118,7 +118,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
             clearAllSellect()
         }
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
 
         if appdelegate.getSourceType() == SourceType.iOSDevice {
             sourceSelector.selectedSegmentIndex = 0
@@ -164,7 +164,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     }
     func drawerButtonPushed() {
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         appdelegate.openCloseDrawer()
     }
 
@@ -175,12 +175,12 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     
     func setupSize() {
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         if appdelegate.getSourceType() == SourceType.iOSDevice {
             for var i = 0; i < imageManager.allImageCount; i++ {
                 //let size:CGSize = CGSizeMake(arc4random() % 50+50, arc4random() % 50+50)
                 let width:CGFloat = CGFloat(arc4random() % 50+50)
-                let asset:PHAsset = imageManager.getAsset(i) as PHAsset
+                let asset:PHAsset = imageManager.getAsset(i) as! PHAsset
                 let imgWidth:CGFloat = CGFloat(asset.pixelWidth)
                 let imgHeight:CGFloat = CGFloat(asset.pixelHeight)
                 
@@ -214,7 +214,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         var count:Int
         setupSize()
         if appdelegate.getSourceType() == SourceType.iOSDevice {
@@ -226,11 +226,11 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
         return count
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell:ThumbnailWaterFallCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("ThumbnailWaterFallCell", forIndexPath: indexPath) as ThumbnailWaterFallCollectionViewCell
+        let cell:ThumbnailWaterFallCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier("ThumbnailWaterFallCell", forIndexPath: indexPath) as! ThumbnailWaterFallCollectionViewCell
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         if appdelegate.getSourceType() == SourceType.iOSDevice {
-            let asset:PHAsset = imageManager.getAsset(indexPath.row) as PHAsset
+            let asset:PHAsset = imageManager.getAsset(indexPath.row) as! PHAsset
             PHImageManager.defaultManager().requestImageForAsset(asset, targetSize: CGSizeMake(250, 250), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
                 cell.thumbnailImageView.image = image
                 //if self.imageManager.isSelected(indexPath.row) == false {
@@ -275,7 +275,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
             println("nil error")
         }
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         var size:CGSize
         //if appdelegate.getSourceType() == SourceType.iOSDevice {
             size = cellSizes[indexPath.item]
@@ -288,7 +288,7 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         if self.imageManager.isSelectMode == true {
             
-            let cell:ThumbnailWaterFallCollectionViewCell = self.collectionView.cellForItemAtIndexPath(indexPath) as ThumbnailWaterFallCollectionViewCell
+            let cell:ThumbnailWaterFallCollectionViewCell = self.collectionView.cellForItemAtIndexPath(indexPath) as! ThumbnailWaterFallCollectionViewCell
             //if imageManager.isSelected(indexPath.row) == false {
             if imageManager.isSelected(indexPath) == false {
                 //cell.selectedStatus = false
@@ -301,9 +301,9 @@ class CenterThumbnailViewController: UIViewController,CHTCollectionViewDelegateW
             }
         }else{
             
-            let viewController:SingleViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SingleViewController") as SingleViewController
+            let viewController:SingleViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SingleViewController") as! SingleViewController
             let application:UIApplication = UIApplication.sharedApplication()
-            let appdelegate:AppDelegate = application.delegate as AppDelegate
+            let appdelegate:AppDelegate = application.delegate as! AppDelegate
             if appdelegate.getSourceType() == SourceType.iOSDevice {
                 let index:Int = indexPath.row
                 let section:Int = indexPath.section

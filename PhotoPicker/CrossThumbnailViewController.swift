@@ -29,9 +29,9 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
     
     @IBOutlet weak var sourceSELECTOR: UISegmentedControl!
     @IBAction func selectedSource(sender: AnyObject) {
-        let segment:UISegmentedControl! = sender as UISegmentedControl
+        let segment:UISegmentedControl! = sender as! UISegmentedControl
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         
         switch segment.selectedSegmentIndex {
         case 0:
@@ -79,7 +79,7 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
         imageManager = ImageManager.sharedInstance
         flickrManager = FlickrManager.sharedInstance
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         //if appdelegate.getSourceType() == SourceType.iOSDevice {
             imageManager.sortByKeyOfAssetDate()
         //}
@@ -129,7 +129,7 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
         for var i = 0; i < imageManager.getCountOfSelectedItemsIndex(); i++ {
             //let index = imageManager.getSelectedItem(i)
             let index = imageManager.getSelectedItemIndex(i)
-            let item:PHAsset = imageManager.getAsset(index.section, index: index.row) as PHAsset
+            let item:PHAsset = imageManager.getAsset(index.section, index: index.row) as! PHAsset
             let width:CGFloat = CGFloat(item.pixelWidth)
             let height:CGFloat = CGFloat(item.pixelHeight)
             PHImageManager.defaultManager().requestImageForAsset(item, targetSize: CGSizeMake(width, height), contentMode:       PHImageContentMode.AspectFit, options: nil, resultHandler: { (image, info) -> Void in
@@ -151,7 +151,7 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
     }
     func drawerButtonPushed() {
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         appdelegate.openCloseDrawer()
     }
 
@@ -163,7 +163,7 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
 
     func numberOfSectionsInCollectionView(collectionView:UICollectionView)->NSInteger{
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         var count:Int
         if appdelegate.getSourceType() == SourceType.iOSDevice {
             count = imageManager.sectionCount
@@ -176,9 +176,9 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
         return 1
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell:CrossBaweCollectionViewCell = self.baseCollectionView.dequeueReusableCellWithReuseIdentifier("BaseCollectionViewCell", forIndexPath: indexPath) as CrossBaweCollectionViewCell
+        let cell:CrossBaweCollectionViewCell = self.baseCollectionView.dequeueReusableCellWithReuseIdentifier("BaseCollectionViewCell", forIndexPath: indexPath) as! CrossBaweCollectionViewCell
         let application:UIApplication = UIApplication.sharedApplication()
-        let appdelegate:AppDelegate = application.delegate as AppDelegate
+        let appdelegate:AppDelegate = application.delegate as! AppDelegate
         if appdelegate.getSourceType() == SourceType.iOSDevice {
             cell.imageArray = imageManager.getImageArray(imageManager.getSectionName(indexPath.section))
             cell.setup()
@@ -215,7 +215,7 @@ class CrossThumbnailViewController: UIViewController,UICollectionViewDelegateFlo
             header = baseCollectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "CrossBaseHeaderIdentify", forIndexPath: indexPath)
                 as? CrossBaesHeaderCollectionReusableView
             let application:UIApplication = UIApplication.sharedApplication()
-            let appdelegate:AppDelegate = application.delegate as AppDelegate
+            let appdelegate:AppDelegate = application.delegate as! AppDelegate
             if appdelegate.getSourceType() == SourceType.iOSDevice {
                 header?.sectionTitle.text = imageManager.getSectionName(indexPath.section)
             }else{
